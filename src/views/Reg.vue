@@ -1,0 +1,137 @@
+<template>
+    <div
+        class="wrap bg-white rounded-2xl p-8 w-fit transition-[height] m-auto h-fit"
+    >
+        <h1 class="text-32 font-sans mb-6 text-black text-center">
+            Присоединиться к Re:meet
+        </h1>
+        <div class="mb-4 text-center">
+            Продолжить с помощью социальных сетей
+        </div>
+        <div class="grid grid-cols-4 gap-2 mb-6">
+            <button
+                class="bg-[#5389F4] rounded-lg p-2.5 flex place-content-center"
+            >
+                <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 27 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M26.4667 12.8001H14.24V16.4401H22.92C22.48 21.5201 18.2533 23.6934 14.2533 23.6934C9.14667 23.6934 4.66667 19.6667 4.66667 14.0001C4.66667 8.53341 8.93333 4.30675 14.2667 4.30675C18.3867 4.30675 20.8 6.93341 20.8 6.93341L23.3333 4.29341C23.3333 4.29341 20.08 0.666748 14.1333 0.666748C6.56 0.666748 0.706665 7.06675 0.706665 14.0001C0.706665 20.7334 6.21333 27.3334 14.3333 27.3334C21.4667 27.3334 26.6667 22.4401 26.6667 15.2134C26.6667 13.6801 26.4667 12.8001 26.4667 12.8001Z"
+                        fill="white"
+                    />
+                </svg>
+            </button>
+
+            <button class="bg-black rounded-lg p-2.5 flex place-content-center">
+                <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M24.9467 26.0001C23.84 27.6534 22.6667 29.2667 20.88 29.2934C19.0934 29.3334 18.52 28.2401 16.4934 28.2401C14.4534 28.2401 13.8267 29.2667 12.1334 29.3334C10.3867 29.4001 9.06671 27.5734 7.94671 25.9601C5.66671 22.6667 3.92004 16.6001 6.26671 12.5201C7.42671 10.4934 9.50671 9.21342 11.76 9.17342C13.4667 9.14675 15.0934 10.3334 16.1467 10.3334C17.1867 10.3334 19.16 8.90675 21.2267 9.12008C22.0934 9.16008 24.52 9.46675 26.08 11.7601C25.96 11.8401 23.1867 13.4667 23.2134 16.8401C23.2534 20.8667 26.7467 22.2134 26.7867 22.2267C26.7467 22.3201 26.2267 24.1467 24.9467 26.0001ZM17.3334 4.66675C18.3067 3.56008 19.92 2.72008 21.2534 2.66675C21.4267 4.22675 20.8 5.80008 19.8667 6.92008C18.9467 8.05341 17.4267 8.93342 15.9334 8.81342C15.7334 7.28008 16.48 5.68008 17.3334 4.66675Z"
+                        fill="white"
+                    />
+                </svg>
+            </button>
+
+            <button
+                class="bg-[#1A74E4] rounded-lg p-2.5 flex place-content-center"
+            >
+                <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M14 0.719971C6.66663 0.719971 0.666626 6.70664 0.666626 14.08C0.666626 20.7466 5.54663 26.28 11.92 27.28V17.9466H8.53329V14.08H11.92V11.1333C11.92 7.78664 13.9066 5.94664 16.96 5.94664C18.4133 5.94664 19.9333 6.19997 19.9333 6.19997V9.4933H18.2533C16.6 9.4933 16.08 10.52 16.08 11.5733V14.08H19.7866L19.1866 17.9466H16.08V27.28C19.2219 26.7838 22.0829 25.1807 24.1465 22.76C26.2102 20.3394 27.3404 17.2608 27.3333 14.08C27.3333 6.70664 21.3333 0.719971 14 0.719971Z"
+                        fill="white"
+                    />
+                </svg>
+            </button>
+
+            <button
+                class="bg-[#1A76FF] rounded-lg p-2.5 flex place-content-center"
+            >
+                <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M0 14C0 7.40034 0 4.10051 2.05025 2.05025C4.10051 0 7.40034 0 14 0C20.5997 0 23.8995 0 25.9497 2.05025C28 4.10051 28 7.40034 28 14C28 20.5997 28 23.8995 25.9497 25.9497C23.8995 28 20.5997 28 14 28C7.40034 28 4.10051 28 2.05025 25.9497C0 23.8995 0 20.5997 0 14Z"
+                        fill="white"
+                    />
+                    <path
+                        d="M12.4066 16.3821V9.33325H15.1434V13.2372C17.3329 12.977 18.7165 10.5261 19.1346 9.33325H21.9854C21.6433 11.8275 19.3816 13.7433 18.2223 14.3217C20.1609 14.9181 22.5556 17.7919 22.5556 19.4185H19.5907C18.496 16.6424 16.1697 15.8037 15.1434 15.7314V19.4185C8.70052 19.8523 5.27952 14.7554 5.45058 9.33325H8.3014C8.47246 14.4301 11.2093 15.9483 12.4066 16.3821Z"
+                        fill="#1A76FF"
+                    />
+                </svg>
+            </button>
+        </div>
+
+        <div class="mb-4 text-center">
+            или создайте новый аккаунт с использованием e-mail
+        </div>
+
+        <Input
+            class="mb-4"
+            type="email"
+            label="Введите email"
+            v-model:value="email"
+        />
+
+        <Input
+            v-if="emailEntered"
+            class="mb-4"
+            type="password"
+            label="Введите пар"
+            v-model:value="password"
+        />
+
+        <button
+            class="bg-accent rounded-lg p-3 w-full text-white mb-4"
+            @click="handleClick"
+        >
+            Продолжить с email
+        </button>
+
+        <div class="mb-4 text-center font-light w-5/6 m-auto">
+            Нажимая на кнопку, вы даете согласие на
+            <a class="text-accent underline font-normal text-sm" href="">
+                обработку своих персональных данных.
+            </a>
+        </div>
+
+        <div class="pt-6 mt-6 border-t border-gray text-center">
+            У вас уже есть аккаунт?
+            <a class="text-accent undeline" href="">Войти</a>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import Input from '../components/Form/Input.vue'
+
+const email = ref<string>('')
+const password = ref<string>('')
+
+const emailEntered = ref<boolean>(false)
+
+const handleClick = () => {
+    emailEntered.value = true
+}
+</script>
+
+<style scoped></style>

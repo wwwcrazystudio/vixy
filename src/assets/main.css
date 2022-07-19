@@ -1,0 +1,18 @@
+@import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: 'Mabry Pro', system-ui, sans-serif;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    input:disabled {
+      background: transparent;
+    }
+}
