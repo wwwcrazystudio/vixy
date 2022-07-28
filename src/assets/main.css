@@ -8,11 +8,18 @@
         font-family: 'Mabry Pro', system-ui, sans-serif;
     }
 
-    select:focus, input:focus {
+    select:focus,
+    input:focus {
         outline: none;
     }
 
     input:disabled {
-      background: transparent;
+        background: transparent;
+    }
+}
+
+@layer utilities {
+    .clip-video-y {
+        clip-path: inset(10% 0%);
     }
 }

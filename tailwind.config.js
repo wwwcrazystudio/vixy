@@ -17,6 +17,7 @@ module.exports = {
                 gray: '#D8D8D8',
                 darkgray: '#f8f8f8',
                 red: '#CE412E',
+                dark: '#262D36',
                 yellow: '#fcd34d',
                 green: '#76C850',
                 overlay: '#040E40',
@@ -29,6 +30,15 @@ module.exports = {
             },
             backgroundImage: {
                 check: "url('@/assets/icons/check.svg')",
+            },
+            width: {
+                38: '9.5rem',
+            },
+            height: {
+                38: '9.5rem',
+            },
+            bottom: {
+                9: '4.5rem',
             },
         },
     },
