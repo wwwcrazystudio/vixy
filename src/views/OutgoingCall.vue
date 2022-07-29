@@ -80,7 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import CallSidebar from '../components/Call/CallSidebar.vue'
 import CallControls from '../components/Call/CallControls.vue'
 import CallStatus from '../components/Call/CallStatus.vue'
@@ -89,11 +89,14 @@ import CallFinished from '../components/Call/CallFinished.vue'
 import CallReactions from '../components/Call/CallReactions.vue'
 import CallNoCam from '../components/Call/CallNoCam.vue'
 import AdvBannerCarousel from '../components/AdvBannerCarousel.vue'
+import { unSafari } from '@/composables/unsafari'
 
 // placeholders
 import video from '@/assets/placeholder/video.jpg'
 import video2 from '@/assets/placeholder/video2.jpg'
 import bannerimg from '@/assets/placeholder/phone.jpg'
+
+unSafari()
 
 const placeholderMessages = [
     {

@@ -80,11 +80,14 @@ import CallStatus from '../components/Call/CallStatus.vue'
 import CallVideo from '../components/Call/CallVideo.vue'
 import CallFinished from '../components/Call/CallFinished.vue'
 import CallNoCam from '../components/Call/CallNoCam.vue'
+import { unSafari } from '@/composables/unsafari'
 
 // placeholders
 import video from '@/assets/placeholder/video.jpg'
 import video2 from '@/assets/placeholder/video2.jpg'
 import bannerimg from '@/assets/placeholder/phone.jpg'
+
+unSafari()
 
 const placeholderMessages = [
     {
