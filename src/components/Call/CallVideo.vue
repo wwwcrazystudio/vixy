@@ -88,9 +88,8 @@
                 {{ nickname }}
             </div>
         </div>
-        <div class="flex">
+        <div class="flex w-full" v-show="show">
             <video
-                v-show="show"
                 class="object-cover object-center w-full h-full"
                 :class="status === 'error' && 'blur-xl'"
                 :poster="poster"

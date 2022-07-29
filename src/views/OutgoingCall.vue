@@ -72,7 +72,7 @@
         />
 
         <CallFinished
-            class="absolute left-0 top-0 right-0 bottom-0 w-full h-screen z-60"
+            class="absolute left-0 top-0 right-0 bottom-0 w-full h-screen z-40"
             nickname="Unknown Purple Oyster"
             v-if="status === 'finished'"
         />
