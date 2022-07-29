@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white p-1 flex rounded items-center">
+    <div class="bg-white/60 backdrop-blur-md p-1 flex rounded items-center">
         <picture
             class="d-block mr-2 basis-12 grow-0 shrink-0"
             v-if="banner.img"

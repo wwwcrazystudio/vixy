@@ -1,15 +1,20 @@
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 export const useMobileDetection = () => {
-    const matches = ref<boolean>(false)
+    const isMobile = ref<boolean>()
 
     const update = () => {
-        console.log('tet')
-        console.log(window.matchMedia('(max-width: 768px)').matches)
-        matches.value = window.matchMedia('(max-width: 768px)').matches
+        isMobile.value = window.matchMedia('(max-width: 768px)').matches
     }
 
-    onMounted(() => window.addEventListener('resize', update))
+    onMounted(() => {
+        update()
+        window.addEventListener('resize', update)
+    })
 
-    return matches.value
+    onUnmounted(() => {
+        window.removeEventListener('resize', update)
+    })
+
+    return { isMobile }
 }

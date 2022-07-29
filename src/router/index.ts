@@ -36,12 +36,20 @@ const router = createRouter({
             component: () => import('../views/NewPassword.vue'),
         },
         {
-            path: '/call',
-            name: 'call',
+            path: '/incoming-call',
+            name: 'incoming-call',
             // route level code-splitting
             // this generates a separate chunk (About.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import('../views/Call.vue'),
+            component: () => import('../views/IncomingCall.vue'),
+        },
+        {
+            path: '/out-call',
+            name: 'outgoing-call',
+            // route level code-splitting
+            // this generates a separate chunk (About.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import('../views/OutgoingCall.vue'),
         },
     ],
 })

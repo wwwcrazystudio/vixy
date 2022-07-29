@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="bg-white rounded-2xl p-4 sm:p-10 w-full m-auto h-auto max-h-[calc(100vh-2rem)] max-w-[calc(100%-1rem)] sm:max-w-xl overflow-auto"
-    >
+    <Modal>
         <img
             class="m-auto mb-4 sm:mb-8 h-40 sm:h-auto"
             src="@/assets/img/helloModal.svg"
@@ -18,9 +16,10 @@
         </div>
 
         <Button class="w-5/6 m-auto block">Продолжить</Button>
-    </div>
+    </Modal>
 </template>
 
 <script setup lang="ts">
 import Button from '../Button.vue'
+import Modal from './Modal.vue'
 </script>

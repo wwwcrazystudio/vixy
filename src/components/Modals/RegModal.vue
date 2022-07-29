@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="bg-white rounded-2xl p-4 sm:p-8 w-full m-auto h-auto max-h-[calc(100vh-2rem)] max-w-[calc(100%-1rem)] overflow-auto"
-        :class="widthByStep"
-    >
+    <Modal :class="widthByStep">
         <h1
             class="text-2xl sm:text-32 mb-2 sm:mb-6 text-center"
             v-if="currentStep < 4"
@@ -19,7 +16,7 @@
             @onStepBack="currentStep -= 1"
             @finish="$emit('finish')"
         />
-    </div>
+    </Modal>
 </template>
 
 <script setup lang="ts">
@@ -29,6 +26,7 @@ import Step2 from './Reg/Step2.vue'
 import Step3 from './Reg/Step3.vue'
 import Step4 from './Reg/Step4.vue'
 import Step5 from './Reg/Step5.vue'
+import Modal from './Modal.vue'
 
 export interface Emits {
     (e: 'finish'): void

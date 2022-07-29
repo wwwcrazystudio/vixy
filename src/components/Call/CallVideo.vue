@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div v-if="!show">
+    <div class="flex">
+        <div class="w-fit m-auto" v-if="!show">
             <svg
                 class="mx-auto mb-6"
                 width="152"
@@ -88,12 +88,19 @@
                 {{ nickname }}
             </div>
         </div>
-        <video
-            v-show="show"
-            :class="`object-cover object-center w-full h-full`"
-            :poster="poster"
-            src=""
-        ></video>
+        <div class="flex">
+            <video
+                v-show="show"
+                class="object-cover object-center w-full h-full"
+                :class="status === 'error' && 'blur-xl'"
+                :poster="poster"
+                src=""
+            ></video>
+            <div
+                v-if="status === 'error'"
+                class="bg-black/40 absolute left-0 top-0 w-full h-full"
+            ></div>
+        </div>
     </div>
 </template>
 
@@ -103,6 +110,7 @@ export interface VideoProps {
     nickname?: string
     poster?: string
     src?: string
+    status?: string
 }
 
 defineProps<VideoProps>()

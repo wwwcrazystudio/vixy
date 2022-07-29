@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="bg-white rounded-2xl p-4 sm:p-10 w-full m-auto h-auto sm:max-w-xl max-h-[calc(100vh-2rem)] max-w-[calc(100%-1rem)] overflow-auto"
-    >
+    <Modal>
         <img
             class="m-auto mb-4 sm:mb-8 h-40 sm:h-auto"
             src="@/assets/img/successModal.svg"
@@ -19,11 +17,12 @@
         </div>
 
         <Button class="m-auto w-full block">{{ btnText }}</Button>
-    </div>
+    </Modal>
 </template>
 
 <script setup lang="ts">
 import Button from '../Button.vue'
+import Modal from './Modal.vue'
 
 export interface Props {
     heading: string

@@ -1,6 +1,6 @@
 <template>
-    <div
-        class="bg-white rounded-2xl p-4 sm:p-8 w-full m-auto h-auto sm:max-w-xl max-h-[calc(100vh-2rem)] max-w-[calc(100%-1rem)] overflow-auto"
+    <Modal
+     
     >
         <div
             class="mx-auto text-2xl sm:text-32 mb-2 sm:mb-6 font-medium text-center"
@@ -27,13 +27,14 @@
         <Button class="w-full m-auto block" @click="$emit('submitted')">
             Установить новый пароль
         </Button>
-    </div>
+    </Modal>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import Button from '../Button.vue'
 import Input from '../Form/Input.vue'
+import Modal from './Modal.vue'
 
 export interface Emits {
     (e: 'submitted'): void

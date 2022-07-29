@@ -4,21 +4,35 @@
         class="transition-all duration-500 z-10 basis-80 absolute md:static grow-0 shrink-0 flex flex-col bg-black/60 md:bg-white/5 border-l border-white/5 backdrop-blur-md md:backdrop-blur-0 -bottom-[60%] rounded-t-2xl md:rounded-none w-full md:w-auto before:w-10 before:h-1 before:rounded-full before:bg-white/20 before:absolute before:top-1 before:left-0 before:right-0 before:m-auto md:before:hidden h-4/6 md:h-auto"
         :class="expanded && '!bottom-0 !bg-dark'"
         @touchmove="handleTouch"
+        @click.stop
     >
         <div class="p-4 border-b border-white/5">
-            <AdvBanner class="mb-4 hidden md:flex" :banner="banner" />
-            <div class="font-medium text-white">
-                Чат с клиентом {{ isMobile }}
+            <AdvBanner class="mb-4 hidden md:flex !bg-white" :banner="banner" />
+            <div class="font-medium text-white flex">
+                Чат с клиентом
+                <span
+                    v-if="unreadedMessages?.length"
+                    class="ml-auto text-sm text-dark font-bold w-7 h-7 grid place-content-center bg-white rounded-full"
+                >
+                    {{ unreadedMessages.length }}
+                </span>
             </div>
         </div>
 
         <div class="p-4 grow flex">
-            <ul class="list-none" v-if="messages?.length">
-                <li class="text-white"></li>
+            <ul
+                class="list-none w-full flex flex-col gap-[10px]"
+                v-if="messages?.length"
+            >
+                <CallChatMessage
+                    :message="message"
+                    v-for="message in messages"
+                    :key="message.date"
+                />
             </ul>
 
             <div class="m-auto" v-else>
-                <template v-if="true">
+                <template v-if="!isMobile">
                     <div
                         class="w-38 h-38 grid place-content-center bg-white/5 rounded-full m-auto mb-4"
                     >
@@ -55,20 +69,24 @@
             </div>
         </div>
 
-        <form class="mt-auto border-t border-white/5 pt-2 pb-4 px-4">
+        <form
+            class="mt-auto border-b border-t md:border-b-0 border-white/10 md:border-white/5 py-2 mb-4 px-4"
+        >
             <div class="relative flex">
                 <div class="basis-3/5 grow shrink">
                     <label
                         for="messageControl"
-                        class="font-sm text-white/40 absolute top-0 bottom-0 h-fit m-auto"
+                        class="font-sm text-white/40 absolute top-0 bottom-0 h-fit m-auto pointer-events-none"
+                        :class="formMessage?.length && 'opacity-0'"
                     >
                         Введите сообщение...
                     </label>
                     <input
                         id="messageControl"
                         type="text"
-                        class="bg-transparent"
-                        :v-model="message"
+                        class="bg-transparent text-white"
+                        :value="formMessage"
+                        @input="handleInput"
                     />
                 </div>
                 <div class="ml-4">
@@ -121,10 +139,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import AdvBanner from '../AdvBanner.vue'
+import CallChatMessage from './CallChatMessage.vue'
 import { useMobileDetection } from '@/composables/media'
-import { computed } from '@vue/reactivity'
+
+export interface Emits {
+    (e: 'onSidebarExpanded', value: boolean): void
+}
+
+export interface Message {
+    unreaded?: boolean
+    author?: string
+    date: string
+    content: string
+}
 
 export interface SidebarProps {
     banner: {
@@ -133,13 +162,16 @@ export interface SidebarProps {
         price: string
         discount: string
     }
-    messages?: Array<object>
+    messages?: Array<Message>
 }
 
-defineProps<SidebarProps>()
+const props = defineProps<SidebarProps>()
+const emit = defineEmits<Emits>()
+
+const { isMobile } = useMobileDetection()
 
 // Input value
-const message = ref<string>('')
+const formMessage = ref<string>('')
 const wrap = ref<HTMLElement>()
 const expanded = ref<boolean>(false)
 
@@ -152,12 +184,43 @@ const handleTouch = (e: TouchEvent) => {
     const touchY = e.touches[0].clientY
     const elOffset = wrapEl?.offsetTop || 0
 
-    if (touchY < elOffset) expanded.value = true
-    else expanded.value = false
+    if (touchY < elOffset) {
+        expanded.value = true
+        emit('onSidebarExpanded', expanded.value)
+        return
+    }
+
+    if (touchY > elOffset) {
+        expanded.value = false
+        emit('onSidebarExpanded', expanded.value)
+        return
+    }
 }
 
-const isMobile = computed(() => {
-    return useMobileDetection()
+const handleInput = (e: Event) => {
+    const el = e.target as HTMLInputElement
+    const value = el.value as string
+    formMessage.value = value
+}
+
+const unreadedMessages = computed(() => {
+    return props.messages?.filter((el: Message) => el.unreaded)
+})
+
+const handleDocumentClick = () => {
+    if (expanded.value) {
+        expanded.value = false
+        emit('onSidebarExpanded', expanded.value)
+        return
+    }
+}
+
+onMounted(() => {
+    document.addEventListener('click', handleDocumentClick)
+})
+
+onUnmounted(() => {
+    document.addEventListener('click', handleDocumentClick)
 })
 </script>
 

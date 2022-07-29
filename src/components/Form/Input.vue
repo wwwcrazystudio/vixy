@@ -11,7 +11,7 @@
             <input
                 :id="id"
                 :type="inputType"
-                class="rounded-lg border p-3 w-full border-gray focus:border-accent hover:border-black/20 disabled:opacity-60 transition"
+                class="rounded-lg border p-3 w-full border-gray focus:border-accent hover:border-black/20 disabled:opacity-60 transition appearance-none"
                 :class="error && 'border-red'"
                 :value="value"
                 @input="handleInput"
