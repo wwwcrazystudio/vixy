@@ -104,7 +104,7 @@
                 </button>
             </div>
             <ul
-                class="w-fit m-auto list-none bg-white rounded-md absolute left-0 right-0 bottom-20"
+                class="w-fit m-auto list-none bg-white rounded-md absolute left-0 right-0 bottom-14 md:bottom-20"
                 v-if="showSettings"
                 @click.stop
             >

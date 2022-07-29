@@ -40,6 +40,11 @@ import { ref } from 'vue'
 import Select from '../../Form/Select.vue'
 import Input from '../../Form/Input.vue'
 
+export interface Option {
+    label: string
+    value: string
+}
+
 export interface Emits {
     (e: 'onStepComplete'): void
 }
@@ -70,6 +75,6 @@ defineEmits<Emits>()
 
 const name = ref<string>('')
 const company = ref<string>('')
-const scope = ref<object>()
-const size = ref<object>()
+const scope = ref<Option>()
+const size = ref<Option>()
 </script>
