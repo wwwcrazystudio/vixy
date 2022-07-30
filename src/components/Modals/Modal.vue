@@ -1,9 +1,12 @@
 <template>
     <div
-        class="bg-white rounded-2xl p-4 sm:p-8 w-full m-auto h-auto overflow-auto max-h-[calc(100vh-2rem)] max-w-[calc(100%-1rem)] sm:max-w-xl"
+        class="relative bg-white shadow-modal rounded-2xl p-4 sm:p-8 w-ful m-auto h-auto overflow-auto max-h-[85vh] sm:max-w-[calc(100%-1rem)] lg:max-w-xl"
         @click.stop
     >
-        <button class="absolute right-4 top-4" @click="$emit('close')">
+        <button
+            class="absolute right-1 top-1 md:right-4 md:top-4"
+            @click="$emit('close')"
+        >
             <svg
                 width="24"
                 height="24"

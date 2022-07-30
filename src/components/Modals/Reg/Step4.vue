@@ -12,18 +12,18 @@
             {{ stepTitle }}
         </div>
 
-        <template v-if="step === 1">
+        <div v-show="step === 1">
             <Input
                 class="mb-4"
                 label="Введите название сайта"
                 v-model:value="url"
             />
             <picture class="block mb-6">
-                <img class="rounded-lg" src="@/assets/img/urlImg.jpg" alt="" />
+                <img class="rounded-lg" :src="urlImg" alt="" />
             </picture>
-        </template>
+        </div>
 
-        <template v-if="step === 2">
+        <div v-show="step === 2">
             <Input
                 class="mb-1"
                 label="Добавьте описание "
@@ -33,15 +33,11 @@
                 Максимум 120 символов
             </div>
             <picture class="block mb-6">
-                <img
-                    class="rounded-lg"
-                    src="@/assets/img/descrImg.jpg"
-                    alt=""
-                />
+                <img class="rounded-lg" :src="descrImg" alt="" />
             </picture>
-        </template>
+        </div>
 
-        <template v-if="step === 3">
+        <div v-show="step === 3">
             <Input
                 class="mb-1"
                 label="Добавьте приветствие "
@@ -51,15 +47,11 @@
                 Максимум 120 символов
             </div>
             <picture class="block mb-6">
-                <img
-                    class="rounded-lg"
-                    src="@/assets/img/greetingImg.jpg"
-                    alt=""
-                />
+                <img class="rounded-lg" :src="greetingImg" alt="" />
             </picture>
-        </template>
+        </div>
 
-        <template v-if="step === 4">
+        <div v-show="step === 4">
             <Radio
                 class="pb-4 mb-4 border-b border-gray"
                 label="🇺🇸 English"
@@ -83,7 +75,7 @@
                 value="fr"
                 v-model:model="lang"
             />
-        </template>
+        </div>
 
         <div class="grid grid-cols-2 gap-4">
             <Button
@@ -107,6 +99,11 @@ import { ref, computed } from 'vue'
 import Input from '../../Form/Input.vue'
 import Button from '../../Button.vue'
 import Radio from '../../Form/Radio.vue'
+
+// imgs
+import urlImg from '@/assets/img/urlImg.jpg'
+import descrImg from '@/assets/img/descrImg.jpg'
+import greetingImg from '@/assets/img/greetingImg.jpg'
 
 export interface Emits {
     (e: 'onStepComplete'): void

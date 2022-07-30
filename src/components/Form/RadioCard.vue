@@ -10,7 +10,7 @@
             @change="handleChange"
         />
         <label
-            class="p-4 pr-16 rounded-lg bg-darkgray block cursor-pointer border border-transparent duration-500 peer-checked:border-[#E4E4E4] peer-checked:shadow-cardshadow peer-checked:-translate-y-4"
+            class="p-4 pr-16 rounded-lg bg-darkgray block cursor-pointer border border-transparent duration-500 peer-checked:border-[#E4E4E4] peer-checked:shadow-card peer-checked:-translate-y-4"
             :class="pseudoElements"
             :for="id"
         >

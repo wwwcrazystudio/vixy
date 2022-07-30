@@ -1,7 +1,7 @@
 <template>
     <div
         ref="wrap"
-        class="transition-all duration-500 z-10 basis-80 absolute md:static grow-0 shrink-0 flex flex-col bg-black/60 md:bg-white/5 border-l border-white/5 backdrop-blur-md md:backdrop-blur-0 -bottom-[60%] rounded-t-2xl md:rounded-none w-full md:w-auto before:w-10 before:h-1 before:rounded-full before:bg-white/20 before:absolute before:top-1 before:left-0 before:right-0 before:m-auto md:before:hidden h-4/6 md:h-auto"
+        class="transition-all duration-500 z-10 basis-80 absolute md:static grow-0 shrink-0 flex flex-col bg-black/60 md:bg-white/5 border-l border-white/5 backdrop-blur-md md:backdrop-blur-0 -bottom-[59%] rounded-t-2xl md:rounded-none w-full md:w-auto before:w-10 before:h-1 before:rounded-full before:bg-white/20 before:absolute before:top-1 before:left-0 before:right-0 before:m-auto md:before:hidden h-4/6 md:h-auto"
         :class="expanded && '!bottom-0 !bg-dark'"
         @touchmove="handleTouch"
         @click.stop="handleClick"

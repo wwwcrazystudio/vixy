@@ -1,5 +1,5 @@
 <template>
-    <Modal>
+    <Modal class="max-w-[calc(100%-1rem)]">
         <div
             class="mx-auto text-2xl sm:text-32 mb-2 sm:mb-6 font-medium text-center"
         >

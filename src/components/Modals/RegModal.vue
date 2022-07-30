@@ -1,5 +1,5 @@
 <template>
-    <Modal :class="widthByStep">
+    <Modal class="max-w-[calc(100%-1rem)]" :class="widthByStep">
         <h1
             class="text-2xl sm:text-32 mb-2 sm:mb-6 text-center"
             v-if="currentStep < 4"
@@ -37,14 +37,14 @@ const currentStep = ref<number>(1)
 
 const widthByStep = computed(() => {
     if (currentStep.value === 3) {
-        return 'lg:max-w-5xl'
+        return 'lg:!max-w-5xl'
     }
 
     if (currentStep.value === 4) {
-        return 'sm:max-w-md'
+        return 'sm:!max-w-md'
     }
 
-    return 'sm:max-w-xl'
+    return null
 })
 
 const Step = computed(() => {

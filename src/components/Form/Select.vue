@@ -3,18 +3,19 @@
         <div class="relative">
             <label
                 class="absolute pointer-events-none h-fit m-auto opacity-60 left-3 top-0 bottom-0 z-10"
-                :class="value && 'opacity-0'"
+                :class="value && '!opacity-0'"
                 :for="id"
             >
                 {{ label }}
             </label>
             <select
                 :id="id"
-                class="rounded-lg border p-3 w-full border-gray focus:border-accent hover:border-black/20 disabled:opacity-60 transition appearance-none bg-[url('@/assets/icons/arrow-down.svg')] bg-no-repeat bg-[position:calc(100%-0.75rem)]"
+                class="rounded-lg border p-3 w-full border-gray focus:border-accent hover:border-black/20 disabled:opacity-60 transition appearance-none bg-white bg-[url('@/assets/icons/arrow-down.svg')] bg-no-repeat bg-[position:calc(100%-0.75rem)]"
                 :class="error && 'border-red'"
                 :value="value?.value"
                 @input="handleChange"
             >
+                <option disabled selected value style="display: none"></option>
                 <option
                     v-for="option in options"
                     :key="option.label"

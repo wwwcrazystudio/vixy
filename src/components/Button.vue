@@ -1,6 +1,6 @@
 <template>
     <button
-        class="rounded-lg py-3 px-6 disabled:cursor-not-allowed disabled:opacity-40 transition"
+        class="rounded-lg py-3 px-3 md:px-6 disabled:cursor-not-allowed disabled:opacity-40 transition"
         :class="btnColor"
         @click="$emit('click')"
     >

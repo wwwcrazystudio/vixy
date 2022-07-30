@@ -3,7 +3,7 @@
         <div class="relative">
             <label
                 class="absolute pointer-events-none h-fit m-auto opacity-60 left-3 top-3 z-10"
-                :class="value.length && 'opacity-0'"
+                :class="value.length && '!opacity-0'"
                 :for="id"
             >
                 {{ label }}

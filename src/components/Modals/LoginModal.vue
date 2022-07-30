@@ -1,5 +1,5 @@
 <template>
-    <Modal>
+    <Modal class="max-w-[calc(100%-1rem)]">
         <div>
             <h1 class="text-2xl sm:text-32 mb-2 sm:mb-6 text-center">
                 Войти в Re:meet
@@ -9,7 +9,9 @@
             </div>
             <SocialsLogin class="mb-4 sm:mb-6" />
 
-            <div class="w-5/6 sm:w-full mx-auto mb-4 text-center">
+            <div
+                class="w-5/6 sm:w-full text-sm md:text-base mx-auto mb-4 text-center"
+            >
                 или создайте новый аккаунт с использованием e-mail
             </div>
 
@@ -24,7 +26,7 @@
                 v-if="emailChecked"
                 class="mb-4"
                 type="password"
-                label="Введите пар"
+                label="Введите пароль"
                 v-model:value="password"
             />
 
@@ -35,14 +37,18 @@
                 {{ btnText }}
             </button>
 
-            <div class="mb-4 text-center font-light w-5/6 m-auto">
+            <div
+                class="mb-2 md:mb-4 text-center font-light md:w-5/6 m-auto text-sm md:text-base"
+            >
                 Нажимая на кнопку, вы даете согласие на
                 <a class="text-accent underline font-normal text-sm" href="">
                     обработку своих персональных данных.
                 </a>
             </div>
 
-            <div class="pt-6 mt-6 border-t border-gray text-center">
+            <div
+                class="pt-4 mt-4 md:pt-6 md:mt-6 border-t border-gray text-center text-sm md:text-base"
+            >
                 У вас еще нет аккаунта?
                 <RouterLink class="text-accent undeline" to="/reg">
                     Зарегистрироваться

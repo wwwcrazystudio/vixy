@@ -28,7 +28,7 @@
             >
                 Назад
             </Button>
-            <Button class="mb-2 sm:mb-0 w-full" transparent>
+            <Button class="mb-2 sm:mb-0" transparent>
                 Оплатить тариф сразу
             </Button>
             <Button

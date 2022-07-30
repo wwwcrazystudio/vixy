@@ -26,7 +26,8 @@ module.exports = {
                 32: '2rem',
             },
             boxShadow: {
-                cardshadow: '20px 20px 20px rgba(0, 0, 0, 0.05)',
+                card: '20px 20px 20px rgba(0, 0, 0, 0.05)',
+                modal: '10px 10px 40px rgba(0, 0, 0, 0.05)',
             },
             backgroundImage: {
                 check: "url('@/assets/icons/check.svg')",

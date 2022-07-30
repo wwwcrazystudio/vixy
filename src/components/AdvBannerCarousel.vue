@@ -1,16 +1,17 @@
 <template>
     <div class="w-full">
         <div class="relative">
-            <div class="flex gap-2 snap-x w-full">
+            <div ref="container" class="w-full keen-slider">
                 <AdvBanner
-                    class="snap-center grow shrink"
+                    class="keen-slider__slide number-slide1"
                     v-for="(banner, key) in banners"
                     :key="key"
                     :banner="banner"
                 />
             </div>
             <button
-                class="w-10 h-10 rounded-full bg-accent absolute right-4 top-0 bottom-0 m-auto grid place-content-center"
+                @click="slider?.next()"
+                class="w-10 h-10 rounded-full bg-accent absolute right-4 top-0 bottom-0 m-auto grid place-content-center z-20"
             >
                 <svg
                     width="24"
@@ -31,32 +32,34 @@
 
 <script setup lang="ts">
 import AdvBanner from './AdvBanner.vue'
-import bannerimg from '@/assets/placeholder/phone.jpg'
+import { useKeenSlider } from 'keen-slider/vue.es'
+import 'keen-slider/keen-slider.min.css'
 
-/* export interface Props {
-    banners: Array<object>
+export interface Banner {
+    img?: string
+    title: string
+    price: string
+    discount: string
 }
 
+export interface Props {
+    banners: Array<Banner>
+}
+
+const [container, slider] = useKeenSlider({
+    slides: {
+        perView: 1,
+    },
+    loop: true,
+    breakpoints: {
+        '(min-width: 768px)': {
+            slides: {
+                perView: 2.8,
+                spacing: 8,
+            },
+        },
+    },
+})
+
 defineProps<Props>()
- */
-const banners = [
-    {
-        img: bannerimg,
-        title: 'Xiaomi / Смартфон Redmi 9A 2/32Gb...',
-        price: '9 093 ₽',
-        discount: '15 093 ₽',
-    },
-    {
-        img: bannerimg,
-        title: 'Samsung Galaxy Ace 10',
-        price: '9 093 ₽',
-        discount: '15 093 ₽',
-    },
-    {
-        img: bannerimg,
-        title: 'Honor Super Mobile Phone Pro',
-        price: '9 093 ₽',
-        discount: '15 093 ₽',
-    },
-]
 </script>

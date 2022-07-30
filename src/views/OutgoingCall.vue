@@ -57,7 +57,10 @@
                 nickname="Unknown Purple Oyster"
             />
 
-            <AdvBannerCarousel class="absolute left-2 bottom-32 md:bottom-24" />
+            <AdvBannerCarousel
+                :banners="placeholderBanners"
+                class="absolute left-2 bottom-32 md:bottom-24"
+            />
 
             <CallControls
                 class="absolute bottom-16 md:bottom-0 left-0 right-0"
@@ -108,6 +111,45 @@ const placeholderMessages = [
     {
         date: '1 мая 2021 г. 11:11',
         content: 'Линус Торвальдс (Linus Torvalds)',
+    },
+]
+
+const placeholderBanners = [
+    {
+        img: bannerimg,
+        title: 'Xiaomi / Смартфон Redmi 9A 2/32Gb...',
+        price: '9 093 ₽',
+        discount: '15 093 ₽',
+    },
+    {
+        img: bannerimg,
+        title: 'Samsung Galaxy Ace 10',
+        price: '9 093 ₽',
+        discount: '15 093 ₽',
+    },
+    {
+        img: bannerimg,
+        title: 'Honor Super Mobile Phone Pro',
+        price: '9 093 ₽',
+        discount: '15 093 ₽',
+    },
+    {
+        img: bannerimg,
+        title: 'Xiaomi / Смартфон Redmi 9A 2/32Gb...',
+        price: '9 093 ₽',
+        discount: '15 093 ₽',
+    },
+    {
+        img: bannerimg,
+        title: 'Samsung Galaxy Ace 10',
+        price: '9 093 ₽',
+        discount: '15 093 ₽',
+    },
+    {
+        img: bannerimg,
+        title: 'Honor Super Mobile Phone Pro',
+        price: '9 093 ₽',
+        discount: '15 093 ₽',
     },
 ]
 
