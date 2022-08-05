@@ -21,6 +21,7 @@ module.exports = {
                 yellow: '#fcd34d',
                 green: '#76C850',
                 overlay: '#040E40',
+                salad: '#64CD81',
             },
             fontSize: {
                 32: '2rem',
@@ -28,6 +29,8 @@ module.exports = {
             boxShadow: {
                 card: '20px 20px 20px rgba(0, 0, 0, 0.05)',
                 modal: '10px 10px 40px rgba(0, 0, 0, 0.05)',
+                popup: '10px 10px 20px rgba(0, 0, 0, 0.05)',
+                basic: '10px 10px 40px rgba(0, 0, 0, 0.05)',
             },
             backgroundImage: {
                 check: "url('@/assets/icons/check.svg')",
