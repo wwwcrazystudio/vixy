@@ -18,10 +18,10 @@
 </template>
 
 <script setup lang="ts">
-import Modal from '../../Modals/Modal.vue'
-import Textarea from '../../Form/Textarea.vue'
+import Modal from './Modal.vue'
+import Textarea from '../Form/Textarea.vue'
 import { ref } from 'vue'
-import Button from '../../Button.vue'
+import Button from '../Button.vue'
 
 export interface Emits {
     (e: 'close'): void

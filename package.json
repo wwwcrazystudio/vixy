@@ -11,6 +11,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "chartist": "^0.11.4",
     "keen-slider": "^6.7.0",
     "nanoid": "^4.0.0",
     "pinia": "^2.0.16",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
+    "@types/chartist": "^0.11.1",
     "@types/jsdom": "^16.2.14",
     "@types/node": "^16.11.45",
     "@vitejs/plugin-vue": "^3.0.1",

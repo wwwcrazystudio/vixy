@@ -3,7 +3,7 @@
         <button
             class="w-10 h-10 rounded-full border border-gray block"
             :class="
-                active && `outline outline-offset-2 outline-2 outline-accent`
+                selected && `outline outline-offset-2 outline-2 outline-accent`
             "
             @click="$emit('click', group.title)"
         >
@@ -27,7 +27,7 @@ export interface Group {
         img?: string
         title: string
     }
-    active: boolean
+    selected: boolean
 }
 
 export interface Emits {

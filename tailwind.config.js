@@ -22,6 +22,7 @@ module.exports = {
                 green: '#76C850',
                 overlay: '#040E40',
                 salad: '#64CD81',
+                borderTriangle: 'transparent #007bff transparent transparent'
             },
             fontSize: {
                 32: '2rem',
@@ -34,6 +35,7 @@ module.exports = {
             },
             backgroundImage: {
                 check: "url('@/assets/icons/check.svg')",
+                checkWhite: "url('@/assets/icons/check-white.svg')",
             },
             width: {
                 38: '9.5rem',
@@ -44,6 +46,9 @@ module.exports = {
             bottom: {
                 9: '4.5rem',
             },
+            border: {
+                triangle: '2.5px 5px 2.5px 0'
+            }
         },
     },
     plugins: [],

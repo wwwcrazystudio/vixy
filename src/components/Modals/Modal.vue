@@ -1,6 +1,6 @@
 <template>
     <div
-        class="relative bg-white shadow-modal rounded-2xl p-4 sm:p-8 w-ful m-auto h-auto overflow-auto max-h-[85vh] sm:max-w-[calc(100%-1rem)] lg:max-w-xl"
+        class="relative bg-white shadow-modal rounded-2xl p-4 sm:p-8 w-full h-fit m-auto overflow-auto max-h-[85vh] sm:max-w-[calc(100%-1rem)] lg:max-w-xl"
         @click.stop
     >
         <button
@@ -28,9 +28,23 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue'
+
 export interface Emits {
     (e: 'close'): void
 }
 
-defineEmits<Emits>()
+const emit = defineEmits<Emits>()
+
+const handleDocumentClick = () => {
+    emit('close')
+}
+
+onMounted(() => {
+    document.addEventListener('click', handleDocumentClick)
+})
+
+onUnmounted(() => {
+    document.addEventListener('click', handleDocumentClick)
+})
 </script>

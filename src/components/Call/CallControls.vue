@@ -152,7 +152,7 @@
         </transition>
 
         <transition name="slide">
-            <ReportForm
+            <ReportModal
                 class="absolute max-w-none rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 -bottom-[64px] md:bottom-0 z-50 !h-fit"
                 v-if="showReportForm"
                 @close="showReportForm = false"
@@ -160,7 +160,7 @@
         </transition>
 
         <transition name="slide">
-            <TransferForm
+            <TransferModal
                 class="absolute max-w-none rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 -bottom-[64px] md:bottom-0 z-50 !h-fit"
                 v-if="showTransferForm"
                 @close="showTransferForm = false"
@@ -173,8 +173,8 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import AudioSettings from './Settings/Audio.vue'
 import VideoSettings from './Settings/Video.vue'
-import ReportForm from './Settings/ReportForm.vue'
-import TransferForm from './Settings/TransferForm.vue'
+import ReportModal from '../Modals/ReportModal.vue'
+import TransferModal from '../Modals/TransferModal.vue'
 
 const showSettings = ref<boolean>(false)
 const showAudioSettings = ref<boolean>(false)

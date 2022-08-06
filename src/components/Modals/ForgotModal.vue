@@ -17,9 +17,7 @@
                 v-model:value="email"
             />
             <div class="flex">
-                <Button laight class="basis-1/4 m-auto block mr-4"
-                    >Назад</Button
-                >
+                <Button light class="basis-1/4 m-auto block mr-4">Назад</Button>
                 <Button class="grow m-auto block" @click="submitted = true">
                     Выслать ссылку
                 </Button>

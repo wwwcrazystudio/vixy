@@ -60,9 +60,45 @@ const router = createRouter({
             component: () => import('../views/Chat.vue'),
             children: [
                 {
-                    path: ':id',
+                    path: ':chatId',
                     name: 'messages',
-                    component: () => import('../views/chat/Messages.vue'),
+                    component: () => import('../views/Chat.vue'),
+                    children: [
+                        {
+                            path: ':msgId',
+                            name: 'single-message',
+                            component: () => import('../views/Chat.vue'),
+                        },
+                    ],
+                },
+                {
+                    path: 'analytics',
+                    name: 'analytics',
+                    component: () => import('../views/chat/Analytics.vue'),
+                },
+                {
+                    path: 'settings',
+                    name: 'settings',
+                    component: () => import('../views/chat/ChatSettings.vue'),
+                    children: [
+                        {
+                            path: ':slug',
+                            name: 'settings',
+                            component: () => import('../views/chat/ChatSetting/index.vue'),
+                        },
+                    ],
+                },
+                {
+                    path: 'general-settings',
+                    name: 'generalsettings',
+                    component: () => import('../views/chat/GeneralSettings.vue'),
+                    children: [
+                        {
+                            path: ':slug',
+                            name: 'generalsettings',
+                            component: () => import('../views/chat/GeneralSetting/index.vue'),
+                        },
+                    ],
                 },
             ],
         },

@@ -26,4 +26,6 @@
 export interface Emits {
     (e: 'close'): void
 }
+
+defineEmits<Emits>()
 </script>

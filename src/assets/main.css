@@ -6,7 +6,7 @@
 @layer base {
     body {
         font-family: 'Mabry Pro', system-ui, sans-serif;
-        background-color: #F8F8F8;
+        background-color: #f8f8f8;
     }
 
     select:focus,
@@ -22,6 +22,26 @@
 @layer utilities {
     .clip-video-y {
         clip-path: inset(10% 0%);
+    }
+
+    .scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: #cccccc #fff;
+    }
+
+    .scrollbar::-webkit-scrollbar {
+        width: 4px;
+        background: #cccccc;
+        opacity: 0.2;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        background: #fff;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        border-radius: 200px;
+        background: #cccccc;
     }
 }
 

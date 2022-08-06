@@ -10,7 +10,7 @@
 
         <ul class="list-none mb-4">
             <PersonItem
-                value="1"
+                :value="key"
                 v-model:model="selectedOperator"
                 name="operator"
                 :person="person"
@@ -32,10 +32,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import Modal from '../../Modals/Modal.vue'
-import Button from '../../Button.vue'
-import Input from '../../Form/Input.vue'
-import PersonItem from '../../PersonItem.vue'
+import Modal from './Modal.vue'
+import Button from '../Button.vue'
+import Input from '../Form/Input.vue'
+import PersonItem from '../PersonItem.vue'
 
 // placeholders
 import person from '@/assets/placeholder/person.jpg'

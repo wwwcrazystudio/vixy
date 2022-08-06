@@ -1,6 +1,5 @@
 <template>
     <li>
-        {{ item.excerpt }}
         <RouterLink
             :to="`/chat/${item.url}`"
             v-slot="{ isActive }"
@@ -62,6 +61,7 @@ export interface HistoryItem {
     content?: string
     date: string
     isOperatorMessage?: boolean
+    isNotification: boolean
     unreaded?: boolean
     call?: {
         type: string
@@ -87,7 +87,10 @@ const props = defineProps<ContactItem>()
 
 const content = computed(() => {
     const { history, excerpt } = props.item
-    const lastMessage = history[history.length - 1]
+    const withoutNotifications = history.filter((el) => !el.isNotification)
+    const lastMessage = withoutNotifications[withoutNotifications.length - 1]
+
+    console.log(lastMessage)
 
     if (excerpt) {
         return excerpt
@@ -106,13 +109,20 @@ const content = computed(() => {
     if (lastMessage.isOperatorMessage) {
         return `
          <div class="flex items-center">
-            <img class="mr-2 rounded-full w-5 h-5" src="${props.item.operator.img}" />
-            <div class="whitespace-nowrap text-ellipsis overflow-hidden">${lastMessage.content}</div>
+            <img class="mr-2 rounded-full w-5 h-5" src="
+                ${props.item.operator.img}" />
+            <div class="whitespace-nowrap text-ellipsis overflow-hidden">
+                ${lastMessage.file ? 'Файл' : lastMessage.content}
+            </div>
         </div>
         `
     }
 
-    return lastMessage.content
+    if (lastMessage.file) {
+        return `<div class="whitespace-nowrap text-ellipsis overflow-hidden">Файл</div>`
+    }
+
+    return `<div class="whitespace-nowrap text-ellipsis overflow-hidden">${lastMessage.content}</div>`
 })
 
 const date = computed(() => {
@@ -122,7 +132,6 @@ const date = computed(() => {
 
 const hasUnreaded = computed(() => {
     const { history } = props.item
-    console.log(history.map((el) => el.unreaded))
     return history.filter((el) => el.unreaded).length
 })
 </script>

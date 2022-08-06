@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="grid place-content-center rounded-full font-bold"
-        :style="itemColor"
-    >
+    <div class="grid place-content-center rounded-full font-bold" :style="itemColor">
         {{ shortname }}
     </div>
 </template>
@@ -11,7 +8,7 @@
 import { computed } from 'vue'
 
 export interface IconProps {
-    color: {
+    color?: {
         bg: string
         text: string
     }
@@ -32,9 +29,16 @@ const shortname = computed(() => {
 
 const itemColor = computed(() => {
     const { color } = props
+    if (color) {
+        return {
+            background: color.bg,
+            color: color.text,
+        }
+    }
+
     return {
-        background: color.bg || 'transparent',
-        color: color.text || '#000',
+        background: 'transparent',
+        color: '#000',
     }
 })
 </script>
