@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="p-9 border mb-4 flex items-center justify-center border-dashed rounded-lg border-gray" @dragover.prevent
-            @dragenter.prevent @drop.prevent="handleDrop">
+        <div class="p-9 border mb-4 text-xs md:text-base flex flex-col md:flex-row items-center justify-center text-center border-dashed rounded-lg border-gray"
+            @dragover.prevent @dragenter.prevent @drop.prevent="handleDrop">
             <template v-if="!files">
-                <label for="attachment" class="cursor-pointer text-accent underline mr-1">
+                <label for="attachment" class="cursor-pointer text-accent underline mr-1 ">
                     Выберите файл
                 </label>
                 или перетащите его в это поле
@@ -30,8 +30,7 @@
                 </div>
             </template>
         </div>
-        <input id="attachment" type="file" class="appearance-none absolute opacity-0 pointer-events-none top-0"
-            @change="handleFile" />
+        <input id="attachment" type="file" class="sr-only peer pointer-events-none h-0" @change="handleFile" />
     </div>
 </template>
 
@@ -70,7 +69,7 @@ const handleDrop = (e: any) => {
 const handleFile = (e: Event) => {
     const el = e.target as HTMLInputElement
     const files = el.files
-    emit('change', files)
+    if (files) emit('change', files)
 }
 
 const formatBytes = (bytes: number) => {

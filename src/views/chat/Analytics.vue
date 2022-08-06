@@ -1,8 +1,8 @@
 <template>
-    <div class="grow shrink w-full  px-8 flex flex-col items-start bg-darkgray">
+    <div class="grow shrink px-4 md:px-8 flex flex-col items-start bg-darkgray overflow-auto">
         <div class="flex py-4 px-1.5 border-b border-gray w-full mb-6">
             <RouterLink class="flex items-center" to="/chat">
-                <svg class="mr-8" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <svg class="mr-2" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g opacity="0.4">
                         <path
@@ -14,10 +14,10 @@
                 Назад к чату
             </RouterLink>
         </div>
-        <div class="flex items-center mb-6 w-full">
-            <div class="font-medium text-32">Аналитика</div>
+        <div class="flex flex-wrap md:items-center mb-6 w-full">
+            <div class="font-medium w-full mb-4 md:mb-0 md:w-auto text-2xl md:text-32">Аналитика</div>
 
-            <div class="flex tems-center rounded-lg bg-white shadow-basic p-3 ml-auto">
+            <div class="flex grow md:grow-0 justify-center items-center rounded-lg bg-white shadow-basic p-2 md:p-3 ml-auto">
                 <button>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.41 7.42L10.83 12L15.41 16.59L14 18L8.00003 12L14 6L15.41 7.42Z" fill="black" />
@@ -32,7 +32,7 @@
                 </button>
             </div>
 
-            <button class="p-3 rounded-lg bg-white shadow-basic grid place-content-center ml-4">
+            <button class="w-11 h-11 rounded-lg bg-white shadow-basic grid place-content-center ml-2 md:ml-4">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g opacity="0.4">
                         <path
@@ -43,47 +43,40 @@
             </button>
         </div>
 
-        <ul class="list-none w-full grid grid-cols-4 gap-4 items-stretch mb-4">
-            <li class="shadow-basic bg-white rounded-2xl p-6 flex flex-col h-[274px]">
-                <div class="mb-8"> Нажатия на кнопку</div>
-                <div class="text-accent font-bold text-[56px]">650</div>
+        <ul class="list-none w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-stretch mb-4">
+            <AnalyticsCard title="Нажатия на кнопку" number="650"
+                description="Общее количество нажатий на кнопку видеосвязи" />
 
-                <div class="mt-auto text-sm opacity-60">Общее количество нажатий на кнопку видеосвязи</div>
-            </li>
+            <AnalyticsCard title="Количество запросов" number="24"
+                description="Общее количество нажатий на кнопку видеосвязи" />
 
-            <li class="shadow-basic bg-white rounded-2xl p-6 flex flex-col h-[274px]">
-                <div class="mb-8"> Количество запросов</div>
-                <div class="text-accent font-bold text-[56px]">24</div>
+            <AnalyticsCard title="Количество стримов" number="344" description="Общее количество стримов" />
 
-                <div class="mt-auto text-sm opacity-60">Общее количество отправленных запросов</div>
-            </li>
+            <AnalyticsCard title="Средняя длительность"
+                number="3,45 <sup class='text-base align-super'>мин./стрим</sup>"
+                description="Общее среднее время длительности всех стримов" />
 
-            <li class="shadow-basic bg-white rounded-2xl p-6 flex flex-col h-[274px]">
-                <div class="mb-8"> Количество стримов</div>
-                <div class="text-accent font-bold text-[56px]">344</div>
-
-                <div class="mt-auto text-sm opacity-60">Общее количество стримов</div>
-            </li>
-
-            <li class="shadow-basic bg-white rounded-2xl p-6 flex flex-col h-[274px]">
-                <div class="mb-8"> Средняя длительность</div>
-                <div class="text-accent font-bold text-[56px]">3,45 <sup class="text-base align-super">мин./стрим</sup>
-                </div>
-
-                <div class="mt-auto text-sm opacity-60">Общее среднее время длительности всех стримов</div>
-            </li>
         </ul>
 
-        <div class="shadow-basic bg-white rounded-2xl p-6 w-full">
+        <div class="shadow-basic bg-white rounded-2xl p-4 md:p-6 w-full">
             <div>Статистика за выбранный период</div>
-            <div class="text-sm opacity-60 mb-6">На этой неделе</div>
+            <div class="text-sm opacity-60 mb-4 md:mb-6">На этой неделе</div>
 
-            <Chart class="w-full" />
+            <Chart :data="data" class="w-full" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
 import Chart from "../../components/Chart.vue";
+import AnalyticsCard from "@/components/AnalyticsCard.vue";
+
+const data = {
+    labels: ['1/1/2022', '2/1/2022', '3/1/2022', '4/1/2022', '5/1/2022', '6/1/2022', '7/1/2022'],
+    datasets: [
+        {
+            values: [140, 170, 138, 120, 100, 90, 110]
+        }
+    ]
+};
 </script>

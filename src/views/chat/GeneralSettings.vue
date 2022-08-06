@@ -1,6 +1,7 @@
 <template>
     <div class="grow shrink flex">
-        <div class="basis-[31%] grow-0 p-4 shrink flex flex-col border-r border-gray">
+        <div class="grow basis-[31%] xl:grow-0 p-4 shrink flex flex-col border-r border-gray"
+            v-show="isTablet ? isBasePage : true">
             <div class="flex items-center mb-4">
                 <div class="font-medium text-lg">Настройки чата</div>
 
@@ -37,25 +38,33 @@
 
 
         </div>
-        <div class="grow basis-auto shrink flex bg-white">
+        <div class="grow basis-auto shrink flex bg-white" v-show="isTablet ? !isBasePage : true">
             <RouterView />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import IconBtn from "../../components/Chat/IconBtn.vue";
-import ChatAdmin from "../../components/Chat/ChatAdmin.vue";
-import SearchInput from "../../components/Form/SearchInput.vue";
+import { useMobileDetection } from '@/composables/useMobileDetection'
 
 import type { SettingMenuItemType } from '@/types/components.interface.js';
 
 // Placeholders
 import { placeholderGeneralSettings } from "@/placeholderData/chatSettings";
+import { useRoute } from "vue-router";
+const { isTablet } = useMobileDetection()
+
+const route = useRoute()
 
 const menu = ref<SettingMenuItemType[]>()
 
 menu.value = placeholderGeneralSettings
 
+const isBasePage = computed(() => {
+    if (route.name === 'generalsettings') return true
+
+    return false
+})
 </script>

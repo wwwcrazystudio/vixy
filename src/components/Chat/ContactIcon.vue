@@ -11,7 +11,7 @@ export interface IconProps {
     color?: {
         bg: string
         text: string
-    }
+    } | string
     name: string
 }
 
@@ -29,7 +29,7 @@ const shortname = computed(() => {
 
 const itemColor = computed(() => {
     const { color } = props
-    if (color) {
+    if (color && typeof color !== 'string') {
         return {
             background: color.bg,
             color: color.text,

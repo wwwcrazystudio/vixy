@@ -28,13 +28,10 @@
 </template>
 
 <script setup lang="ts">
+import type { BannerType } from '@/types/components.interface.js';
+
 export interface BannerProps {
-    banner: {
-        img?: string
-        title: string
-        price: string
-        discount: string
-    }
+    banner: BannerType
 }
 
 defineProps<BannerProps>()

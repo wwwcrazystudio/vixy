@@ -4,7 +4,7 @@
         @click.stop
     >
         <button
-            class="absolute right-1 top-1 md:right-4 md:top-4"
+            class="absolute right-2 top-2 md:right-4 md:top-4"
             @click="$emit('close')"
         >
             <svg

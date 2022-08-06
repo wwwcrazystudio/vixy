@@ -85,7 +85,7 @@ import { unSafari } from '@/composables/unsafari'
 // placeholders
 import video from '@/assets/placeholder/video.jpg'
 import video2 from '@/assets/placeholder/video2.jpg'
-import bannerimg from '@/assets/placeholder/phone.jpg'
+import { placeholderBanners } from '@/placeholderData/banners'
 
 unSafari()
 
@@ -123,12 +123,7 @@ const shiftVideo = ref<boolean>(false)
 // is user has cam
 const hasCam = ref<boolean>(true)
 
-const banner = {
-    img: bannerimg,
-    title: 'Xiaomi / Смартфон Redmi 9A 2/32Gb...',
-    price: '9 093 ₽',
-    discount: '15 093 ₽',
-}
+const banner = placeholderBanners[0]
 
 // placeholder interactions
 setTimeout(() => {

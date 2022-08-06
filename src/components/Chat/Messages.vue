@@ -1,18 +1,30 @@
 <template>
     <div class="w-full flex flex-col">
-        <div class="bg-white px-4 py-2 w-full flex items-center mb-auto">
-            <ContactIcon class="border border-gray basis-10 w-10 h-10 mr-2 rounded text-[10px]" :name="contact.name"
-                :color="contact.color" v-if="!contact.img" />
-            <picture class="border border-gray basis-10 w-10 h-10 mr-2 rounded" v-else>
-                <img :src="contact.img" clas="w-full h-full rounded-full object-cover" alt="" />
-            </picture>
-
-            <div class="font-medium">
-                {{ contact.name }}
+        <div class="bg-white px-2 md:px-4 py-2 w-full flex flex-wrap items-center mb-auto">
+            <RouterLink to="/chat" class="grid place-content-center xl:hidden">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.4">
+                        <path
+                            d="M13.7071 6.29289C14.0976 6.68342 14.0976 7.31658 13.7071 7.70711L9.41421 12L13.7071 16.2929C14.0976 16.6834 14.0976 17.3166 13.7071 17.7071C13.3166 18.0976 12.6834 18.0976 12.2929 17.7071L7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929L12.2929 6.29289C12.6834 5.90237 13.3166 5.90237 13.7071 6.29289Z"
+                            fill="black" />
+                    </g>
+                </svg>
+            </RouterLink>
+            <div class="flex gap-2 items-center w-[40%] shrink">
+                <div class="hidden md:flex">
+                    <ContactIcon class="border border-gray w-8 h-8 md:w-10 md:h-10 rounded text-[10px]"
+                        :name="contact.name" :color="contact.color" v-if="!contact.img" />
+                    <picture class="border border-gray  w-8 h-8 md:w-10 md:h-10 rounded" v-else>
+                        <img :src="contact.img" clas="w-full h-full rounded-full object-cover" alt="" />
+                    </picture>
+                </div>
+                <div class="font-medium text-ellipsis overflow-hidden whitespace-nowrap w-5/6">
+                    {{ contact.name }}
+                </div>
             </div>
 
-            <div class="ml-auto flex">
-                <button class="ml-4" @click.stop="videoHistoryModal = true">
+            <div class="ml-auto gap-4 flex">
+                <button @click.stop="videoHistoryModal = true">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g opacity="0.4">
                             <path
@@ -24,7 +36,7 @@
                     </svg>
                 </button>
 
-                <button class="ml-4" @click.stop="blacklistUserModal = true">
+                <button @click.stop="blacklistUserModal = true">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g opacity="0.4">
                             <path
@@ -34,7 +46,7 @@
                     </svg>
                 </button>
 
-                <button class="ml-4" @click.stop="transferUserModal = true">
+                <button @click.stop="transferUserModal = true">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g opacity="0.4">
                             <path
@@ -91,20 +103,24 @@
 
         <Overlay v-if="transferUserModal">
             <TransferModal
-                class="max-w-none rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 -bottom-[64px] md:bottom-0 z-50"
+                class="max-w-none w-full rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 mb-0 md:mb-auto bottom-0 z-50"
                 @close="transferUserModal = false" />
         </Overlay>
 
         <Overlay v-if="blacklistUserModal">
-            <BlacklistModal :username="contact.name" @close="blacklistUserModal = false" />
+            <BlacklistModal class="mb-0  w-full md:mb-auto bottom-0" :username="contact.name"
+                @close="blacklistUserModal = false" />
         </Overlay>
 
         <Overlay v-if="attachmentsModal">
-            <AttachmentModal :attachment="attachment" @close="attachmentsModal = false" @confirm="handleFileUpload" />
+            <AttachmentModal class="max-w-none md:fixed md:top-0 left-0 right-0 bottom-0 z-50" :attachment="attachment"
+                @close="attachmentsModal = false" @confirm="handleFileUpload" />
         </Overlay>
 
         <Overlay v-if="videoHistoryModal">
-            <VideoHistoryModal v-model:videos="videos" @close="videoHistoryModal = false" />
+            <VideoHistoryModal
+                class="max-w-none  w-full rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0  mb-0 md:mb-auto bottom-0 z-50"
+                v-model:videos="videos" @close="videoHistoryModal = false" />
         </Overlay>
     </div>
 </template>
@@ -120,7 +136,7 @@ import BlacklistModal from '../Modals/BlacklistModal.vue'
 import AttachmentModal from '../Modals/AttachmentModal.vue'
 import VideoHistoryModal from '../Modals/VideoHistoryModal.vue'
 import Attachment from '../Form/Attachment.vue'
-import type { ContactItemType, VideoItemType } from '@/types/components.interface'
+import type { ContactItemType, VideoItemType, FileItemType } from '@/types/components.interface'
 
 // placeholders
 import { videosPlaceholder } from '@/placeholderData/videos'
@@ -132,7 +148,10 @@ export interface MessagesProps {
 
 export interface MessagesEmits {
     (e: 'unblacklist'): void
-    (e: 'uploadFile', value: object): void
+    (e: 'uploadFile', value: {
+        contact: string
+        file: FileItemType
+    }): void
 }
 
 const formMessage = ref<string>('')

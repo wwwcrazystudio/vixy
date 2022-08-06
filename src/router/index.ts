@@ -83,7 +83,7 @@ const router = createRouter({
                     children: [
                         {
                             path: ':slug',
-                            name: 'settings',
+                            name: 'subsettings',
                             component: () => import('../views/chat/ChatSetting/index.vue'),
                         },
                     ],
@@ -95,7 +95,7 @@ const router = createRouter({
                     children: [
                         {
                             path: ':slug',
-                            name: 'generalsettings',
+                            name: 'generalsubsettings',
                             component: () => import('../views/chat/GeneralSetting/index.vue'),
                         },
                     ],

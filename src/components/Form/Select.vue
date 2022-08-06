@@ -31,20 +31,16 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { nanoid } from 'nanoid'
-
-export interface Option {
-    label: string
-    value: string
-}
+import type { SelectOption } from '@/types/components.interface.js'
 
 export interface InputProps {
     label: string
-    value?: Option
-    options: Array<Option>
+    value?: SelectOption
+    options: Array<SelectOption>
 }
 
 export interface InputEmits {
-    (e: 'update:value', value: Option): void
+    (e: 'update:value', value: SelectOption): void
 }
 
 const props = defineProps<InputProps>()

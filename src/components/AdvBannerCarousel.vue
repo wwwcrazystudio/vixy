@@ -34,16 +34,10 @@
 import AdvBanner from './AdvBanner.vue'
 import { useKeenSlider } from 'keen-slider/vue.es'
 import 'keen-slider/keen-slider.min.css'
-
-export interface Banner {
-    img?: string
-    title: string
-    price: string
-    discount: string
-}
+import type { BannerType } from '@/types/components.interface';
 
 export interface Props {
-    banners: Array<Banner>
+    banners: BannerType[]
 }
 
 const [container, slider] = useKeenSlider({

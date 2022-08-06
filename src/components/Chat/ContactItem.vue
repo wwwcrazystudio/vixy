@@ -1,50 +1,25 @@
 <template>
     <li>
-        <RouterLink
-            :to="`/chat/${item.url}`"
-            v-slot="{ isActive }"
-            class="flex items-center w-full relative"
-            exact-active-class="bg-accent"
-        >
+        <RouterLink :to="`/chat/${item.url}`" v-slot="{ isActive }" class="flex items-center w-full relative gap-3"
+            exact-active-class="bg-accent">
             <div class="pl-4">
                 <ChatContactIcon
-                    class="border-[3px] border-white basis-14 w-14 h-14 mr-3"
-                    :name="item.name"
-                    :color="item.color"
-                    v-if="!item.img"
-                />
-                <picture
-                    class="border-[3px] block border-white basis-14 w-14 h-14 mr-3"
-                    v-else
-                >
-                    <img
-                        :src="item.img"
-                        clas="w-full h-full rounded-full object-cover"
-                        alt=""
-                    />
+                    class="border-2 md:border-[3px] border-white w-10 h-10 text-xs md:text-base md:w-14 md:h-14"
+                    :name="item.name" :color="item.color" v-if="!item.img" />
+                <picture class="border-[3px] block border-white w-14 h-14" v-else>
+                    <img :src="item.img" clas="w-full h-full rounded-full object-cover" alt="" />
                 </picture>
             </div>
-            <div
-                class="grow shrink py-4 pr-4 border-b border-gray overflow-hidden"
-            >
-                <div
-                    class="font-medium flex items-center"
-                    :class="isActive && 'text-white'"
-                >
-                    {{ item.name }}
+            <div class="grow shrink py-4 pr-4 border-b border-gray overflow-hidden">
+                <div class="font-medium flex items-center" :class="isActive && 'text-white'">
+                    <div class="whitespace-nowrap text-ellipsis overflow-hidden">{{ item.name }}</div>
                     <span class="ml-auto opacity-40 text-xs">{{ date }}</span>
                 </div>
-                <div :class="hasUnreaded && 'pr-7 relative '">
-                    <div
-                        class="text-black/60 text-sm whitespace-nowrap text-ellipsis overflow-hidden"
-                        :class="isActive && 'text-white/80 active'"
-                        v-html="content"
-                    ></div>
-                    <div
-                        class="rounded-full bg-accent text-white w-5 h-5 absolute right-0 top-0 bottom-0 m-auto grid place-content-center font-semibold text-xs"
-                        :class="isActive && 'bg-white text-accent'"
-                        v-if="hasUnreaded"
-                    >
+                <div :class="hasUnreaded && 'md:pr-7 relative'">
+                    <div class="text-black/60 text-sm whitespace-nowrap text-ellipsis overflow-hidden"
+                        :class="isActive && 'text-white/80 active'" v-html="content"></div>
+                    <div class="rounded-full bg-accent text-white w-5 h-5 absolute right-0 top-0 bottom-0 m-auto grid place-content-center font-semibold text-xs"
+                        :class="isActive && 'bg-white text-accent'" v-if="hasUnreaded">
                         {{ hasUnreaded }}
                     </div>
                 </div>
@@ -54,33 +29,12 @@
 </template>
 
 <script setup lang="ts">
+import type { ContactItemType } from '@/types/components.interface'
 import { computed } from 'vue'
 import ChatContactIcon from './ContactIcon.vue'
 
-export interface HistoryItem {
-    content?: string
-    date: string
-    isOperatorMessage?: boolean
-    isNotification: boolean
-    unreaded?: boolean
-    call?: {
-        type: string
-        duration: string
-    }
-}
-
 export interface ContactItem {
-    item: {
-        img?: string
-        name: string
-        history: Array<HistoryItem>
-        color?: {
-            text: string
-            bg: string
-        }
-        url: string
-        excerpt: string
-    }
+    item: ContactItemType
 }
 
 const props = defineProps<ContactItem>()

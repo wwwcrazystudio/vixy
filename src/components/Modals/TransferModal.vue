@@ -9,14 +9,8 @@
         </div>
 
         <ul class="list-none mb-4">
-            <PersonItem
-                :value="key"
-                v-model:model="selectedOperator"
-                name="operator"
-                :person="person"
-                v-for="(person, key) in persons"
-                :key="key"
-            />
+            <PersonItem :value="person.name + key" v-model:model="selectedOperator" name="operator" :person="person"
+                v-for="(person, key) in operators" :key="key" />
         </ul>
 
         <Input class="mb-4.5" v-model:value="comment" label="Комментарий" />
@@ -38,43 +32,21 @@ import Input from '../Form/Input.vue'
 import PersonItem from '../PersonItem.vue'
 
 // placeholders
-import person from '@/assets/placeholder/person.jpg'
+import { placeholderOperators } from '@/placeholderData/operators'
+import type { PersonItemType } from '@/types/components.interface'
 
 export interface Emits {
     (e: 'close'): void
 }
 
-const persons = [
-    {
-        img: person,
-        online: true,
-        name: 'Ангелина Сальникова',
-        tel: '8 984 590-56-43',
-    },
-    {
-        img: person,
-        online: true,
-        name: 'Мирослава Драговоз',
-        tel: '8 984 590-56-43',
-    },
-    {
-        img: person,
-        online: false,
-        name: 'Евгений Иванов',
-        tel: '8 984 590-56-43',
-    },
-    {
-        img: person,
-        online: false,
-        name: 'Константин Абдулхалилрахманов',
-        tel: '8 984 590-56-43',
-    },
-]
-
 defineEmits<Emits>()
 
 const comment = ref<string>('')
 const selectedOperator = ref<string>('')
+const operators = ref<PersonItemType[]>()
+
+operators.value = placeholderOperators
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

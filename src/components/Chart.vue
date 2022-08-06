@@ -1,84 +1,146 @@
 <template>
     <div>
-        <div class="w-full" ref="chart">
+        <svg class="absolute h-0">
+            <defs>
+                <linearGradient id="shadowRegionGradient" x1="0" x2="0" y1="0" y2="1">
+                    <stop style="stop-color: #1940F3" offset="0%" stop-opacity="0.1"></stop>
+                    <stop style="stop-color: #1940F3" offset="20%" stop-opacity="0.05"></stop>
+                    <stop style="stop-color: #1940F3" offset="60%" stop-opacity="0"></stop>
+                    <stop style="stop-color: #1940F3" offset="100%" stop-opacity="0"></stop>
+                </linearGradient>
+            </defs>
+        </svg>
+        <div class="w-full" ref="chartEl">
 
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { Line, Interpolation } from 'chartist';
-import { onMounted, ref } from 'vue';
-import 'chartist/dist/chartist.min.css'
+import { Chart } from "frappe-charts"
+import { onMounted, ref, watch } from 'vue';
 
-const chart = ref<HTMLElement>()
+export interface ChartProps {
+    data: object
+}
+
+const props = defineProps<ChartProps>()
+
+const chartEl = ref<HTMLElement>()
+const chart = ref<any>()
 
 onMounted(() => {
-    var data = {
-        // A labels array that can contain any sort of values
-        labels: ['1/1/2022', '2/1/2022', '3/1/2022', '4/1/2022', '5/1/2022', '6/1/2022', '7/1/2022'],
-        // Our series array that contains series objects or in this case series data arrays
-        series: [{
-            name: 'data',
-            data: [140, 150, 138, 120, 100, 90, 110]
-        }]
-    };
-
-    const options = {
-        fullWidth: true,
-        series: {
-            'data': {
-                lineSmooth: Interpolation.simple(),
-                showArea: true
+    if (chartEl.value) {
+        chart.value = new Chart(chartEl.value, {
+            data: props.data,
+            type: 'line',
+            height: 260,
+            colors: ['#1940F3'],
+            lineOptions: {
+                spline: 1,
+                regionFill: 1
             },
-        },
-        axisX: {
-            showGrid: false,
-        },
-        height: '350px',
-        chartPadding: 0,
-        high: 200,
-        low: 0,
+            tooltipOptions: {
+                // Format timescale in case of timestamp data
+                formatTooltipX: (d: any) => (d).toUpperCase(),
+            },
+            animate: false,
+            axisOptions: {
+                xIsSeries: true,   //default:false
+                xAxisMode: "tick",
+                yAxisMode: "span"
+            },
+
+        })
     }
-
-    // As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
-
-    // Create a new line chart object where as first parameter we pass in a selector
-    // that is resolving to our chart container element. The Second parameter
-    // is the actual data object. As a third parameter we pass in our custom options.
-    new Line(chart.value, data, options);
 })
+
+watch(() => props.data, () => {
+    if (chart.value)
+        chart.value.update(props.data)
+})
+
+
 </script>
 
 <style>
-.ct-series-a .ct-line {
-    stroke-dasharray: 4;
-    stroke-width: 2px;
+.graph-svg-tip.comparison {
+    display: flex;
+    flex-direction: column-reverse;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 8px;
+    align-items: center;
+    max-width: 70px;
+    transform: translateY(-10px);
+}
+
+.graph-svg-tip.comparison .title {
+    font-size: 0.75rem;
+    padding: 0;
+}
+
+.graph-svg-tip.comparison li {
+    padding: 0;
+    border-top: none !important;
+    text-align: center;
+}
+
+.graph-svg-tip .svg-pointer {
+    border-top-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    margin: 0 0 -17px -5px;
+}
+
+.chart-container .dataset-units .line-graph-path {
+    stroke-dasharray: 6;
+    fill: none !important;
+}
+
+.chart-container .dataset-units .region-fill {
+    fill: url(#shadowRegionGradient) !important;
+}
+
+.chart-container .dataset-units circle {
+    fill: #fff !important;
     stroke: #1940F3;
+    r: 6;
+    stroke-width: 6px;
+    transition: 350ms;
 }
 
-.ct-series-a .ct-bar,
-.ct-series-a .ct-line,
-.ct-series-a .ct-point,
-.ct-series-a .ct-slice-donut {
-    width: 16px;
-    height: 16px;
-    stroke: #1940F3;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    position: relative;
+.chart-container .dataset-units circle:hover {
+    r: 8;
+    transition: 350ms;
+}
+
+.chart-container .axis text {
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+@media (max-width: 1024px) {
+    .chart-container .dataset-units circle {
+        r: 4;
+        stroke-width: 3px;
+        transition: 350ms;
+    }
+
+    .chart-container .axis text {
+        font-size: 14px;
+    }
+}
+
+.chart-container .x {
+    transform: translateY(10px);
 
 }
 
-.ct-grid {
-    stroke-dasharray: 0;
-    stroke: #d8d8d8;
-}
 
-.ct-series-a .ct-area,
-.ct-series-a .ct-slice-donut-solid,
-.ct-series-a .ct-slice-pie {
-    fill: #1940F3;
-    opacity: 0.2;
+.chart-container .y {
+    transform: translatex(-10px);
+
 }
 </style>

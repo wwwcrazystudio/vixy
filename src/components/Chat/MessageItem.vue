@@ -1,6 +1,6 @@
 <template>
     <li class="py-1 -mx-6 p-6" :class="highlightSearch && 'bg-accent/10 transition'" ref="item">
-        <div class="flex items-end w-2/5" :class="message.isOperatorMessage && 'ml-auto'">
+        <div class="flex items-end w-full md:w-3/6" :class="message.isOperatorMessage && 'ml-auto'">
             <template v-if="!message.isOperatorMessage">
                 <ChatContactIcon class="mr-2.5 w-6 h-6 text-[8px]" :name="contact.name" :color="contact.color"
                     v-if="!contact.img" />
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </template>
-                <template v-else>
+                <template v-if="!message.file && !message.call">
                     <div class="text-xs pr-11 relative">
                         {{ message.content }}
                         <span class="opacity-60 flex items-center absolute right-0 bottom-0" :class="
@@ -89,11 +89,11 @@
 import { computed, nextTick, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import ChatContactIcon from './ContactIcon.vue'
-import type { HistoryItem, ContactItem } from '@/types/components.interface'
+import type { HistoryItemType, ContactItemType } from '@/types/components.interface'
 
 export interface Message {
-    message: HistoryItem
-    contact: ContactItem
+    message: HistoryItemType
+    contact: ContactItemType
 }
 
 const route = useRoute()

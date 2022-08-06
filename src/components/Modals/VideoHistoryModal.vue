@@ -1,5 +1,5 @@
 <template>
-    <Modal class="!max-w-md h-fit" :class="selectedVideo && '!max-w-[620px] !p-4'" @close="$emit('close')">
+    <Modal class="max-w-[calc(100%-1rem)] md:!max-w-md h-fit" :class="selectedVideo && '!max-w-[620px] !p-4'" @close="$emit('close')">
         <div class="text-2xl mb-2 sm:mb-6 relative" :class="selectedVideo && '!text-base ml-8'">
 
             <button class="absolute -left-8 top-0" v-if="selectedVideo" @click="selectedVideo = undefined">
@@ -44,7 +44,7 @@
         </template>
 
         <template v-else>
-            <div class="-mx-4 -mt-2">
+            <div class="-mx-4 md:-mt-2">
                 <div class="relative rounded-2xl overflow-hidden">
                     <video src="" :poster="selectedVideo.img" ref="videoEl" @ended="isPlaying = false"
                         @click="playbackControl(false)"></video>

@@ -142,27 +142,16 @@
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import AdvBanner from '../AdvBanner.vue'
 import CallChatMessage from './CallChatMessage.vue'
-import { useMobileDetection } from '@/composables/media'
+import { useMobileDetection } from '@/composables/useMobileDetection'
+import type { BannerType, VideoChatMessageType } from '@/types/components.interface'
 
 export interface Emits {
     (e: 'onSidebarExpanded', value: boolean): void
 }
 
-export interface Message {
-    unreaded?: boolean
-    author?: string
-    date: string
-    content: string
-}
-
 export interface SidebarProps {
-    banner: {
-        img?: string
-        title: string
-        price: string
-        discount: string
-    }
-    messages?: Array<Message>
+    banner: BannerType
+    messages?: VideoChatMessageType[]
 }
 
 const props = defineProps<SidebarProps>()
@@ -209,7 +198,7 @@ const handleInput = (e: Event) => {
 }
 
 const unreadedMessages = computed(() => {
-    return props.messages?.filter((el: Message) => el.unreaded)
+    return props.messages?.filter((el: VideoChatMessageType) => el.unreaded)
 })
 
 const handleDocumentClick = () => {

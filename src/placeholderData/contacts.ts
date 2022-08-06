@@ -1,6 +1,7 @@
 import operatorImg from '@/assets/placeholder/person.jpg'
+import type { ContactItemType } from '@/types/components.interface'
 
-export const placeholderContacts = [
+export const placeholderContacts:ContactItemType[] = [
     {
         id: '1',
         img: '',

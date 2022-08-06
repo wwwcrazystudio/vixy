@@ -1,37 +1,25 @@
 <template>
     <li>
-        <button
-            class="w-10 h-10 rounded-full border border-gray block"
-            :class="
-                selected && `outline outline-offset-2 outline-2 outline-accent`
-            "
-            @click="$emit('click', group.title)"
-        >
+        <button class="w-10 h-10 rounded-full border border-gray block" :class="
+            selected && `outline outline-offset-2 outline-2 outline-accent`
+        " @click="$emit('click', group)">
             <picture class="block">
-                <img
-                    class="w-full h-full object-cover"
-                    :src="group.img || newGroup"
-                    :alt="group.title"
-                />
+                <img class="w-full h-full object-cover" :src="group.icon" :alt="group.title" />
             </picture>
         </button>
     </li>
 </template>
 
 <script setup lang="ts">
-import newGroup from '@/assets/icons/newGroup.svg'
+import type { GroupItemType } from '@/types/components.interface.js'
 
 export interface Group {
-    group: {
-        url: string
-        img?: string
-        title: string
-    }
+    group: GroupItemType
     selected: boolean
 }
 
 export interface Emits {
-    (e: 'click', value: string): void
+    (e: 'click', value: GroupItemType): void
 }
 
 defineEmits<Emits>()

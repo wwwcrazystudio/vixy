@@ -1,5 +1,5 @@
 <template>
-    <code class="relative block text-sm mb-6 p-6 pb-12 pl-14 bg-[#011627] rounded-lg shadow-md">
+    <code class="relative block text-sm mb-6 p-6 pt-12 md:pt-6 md:pb-12 md:pl-14 bg-[#011627] rounded-lg shadow-md">
             <button
                 @click="copyCode"
                 class="absolute right-4 top-4 rounded-sm font-sans font-medium text-xs p-2 text-white bg-white/20"
@@ -7,7 +7,7 @@
                 {{ !copied ? 'Скопировать' : 'Скопировано' }}
             </button>
             <span
-                class="absolute flex flex-col leading-normal left-6 top-5 text-[#1F385C]"
+                class="absolute hidden md:flex flex-col leading-normal left-6 top-5 text-[#1F385C]"
             >
                 <span>1</span>
                 <span>2</span>

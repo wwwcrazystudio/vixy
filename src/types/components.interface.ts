@@ -18,6 +18,7 @@ export interface HistoryItemType {
     date?: string
     isOperatorMessage?: boolean
     isNotification?: boolean
+    isBlackListNotification?: boolean,
     unreaded?: boolean
     call?: {
         type: string
@@ -34,7 +35,7 @@ export interface ContactItemType {
     color?: {
         text: string
         bg: string
-    }
+    } | string
     operator: {
         img: string
         name: string
@@ -53,4 +54,36 @@ export interface SettingMenuItemType {
     icon: string
     title: string
     url: string
+}
+
+export interface GroupItemType {
+    icon: string
+    title: string
+    url: string
+}
+
+export interface BannerType {
+    img?: string
+    title: string
+    price: string
+    discount: string
+}
+
+export interface PersonItemType {
+    name: string
+    online: boolean
+    img: string
+    tel: string
+}
+
+export interface VideoChatMessageType {
+    unreaded?: boolean
+    author?: string
+    date: string
+    content: string
+}
+
+export interface SelectOption {
+    label: string
+    value: string
 }

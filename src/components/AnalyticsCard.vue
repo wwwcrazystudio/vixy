@@ -1,0 +1,18 @@
+<template>
+    <li class="shadow-basic bg-white rounded-2xl p-4 md:p-6 flex flex-col h-[200px] md:h-[274px]">
+        <div class="mb-2 md:mb-4 lg:mb-8"> {{ title }}</div>
+        <div class="text-accent font-bold  text-32 md:text-[56px]" v-html="number"></div>
+
+        <div class="mt-auto text-sm opacity-60">{{ description }}</div>
+    </li>
+</template>
+
+<script setup lang="ts">
+export interface AnalyticsCardProps {
+    title: string
+    number: string
+    description: string
+}
+
+defineProps<AnalyticsCardProps>()
+</script>

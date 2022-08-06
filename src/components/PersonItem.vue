@@ -32,18 +32,14 @@
 </template>
 
 <script setup lang="ts">
+import type { PersonItemType } from '@/types/components.interface.js'
 import { nanoid } from 'nanoid'
 
 export interface PersonItemProps {
     value: string
     model: string
     name: string
-    person: {
-        name: string
-        online: boolean
-        img: string
-        tel: string
-    }
+    person: PersonItemType
 }
 
 export interface PersonItemEmits {

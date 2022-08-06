@@ -19,13 +19,10 @@
 </template>
 
 <script setup lang="ts">
+import type { VideoChatMessageType } from '@/types/components.interface.js';
+
 export interface Message {
-    message: {
-        unreaded?: boolean
-        author?: string
-        date: string
-        content: string
-    }
+    message: VideoChatMessageType
 }
 
 defineProps<Message>()
