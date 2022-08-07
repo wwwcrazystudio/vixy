@@ -1,5 +1,5 @@
 <template>
-    <div class="grow shrink px-4 md:px-8 flex flex-col items-start bg-darkgray overflow-auto">
+    <div class="grow shrink px-4 md:px-8 flex flex-col items-start bg-darkgray overflow-auto" @touchmove.stop>
         <div class="flex py-4 px-1.5 border-b border-gray w-full mb-6">
             <RouterLink class="flex items-center" to="/chat">
                 <svg class="mr-2" width="24" height="24" viewBox="0 0 24 24" fill="none"

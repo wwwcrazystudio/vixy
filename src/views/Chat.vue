@@ -71,7 +71,7 @@
                 </div>
 
                 <!-- Contacts list -->
-                <ul class="overflow-hidden grid grid-cols-1" v-else>
+                <ul class="overflow-hidden grid grid-cols-1" @touchmove.stop v-else>
                     <ChatContactItem class="overflow-hidden" v-for="(contact, key) in filteredContacts" :item="contact"
                         :key="key" />
                 </ul>

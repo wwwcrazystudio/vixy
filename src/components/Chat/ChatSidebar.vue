@@ -1,5 +1,5 @@
 <template>
-    <aside class="max-w-[72px] border-r flex flex-col border-gray p-2 md:p-4">
+    <aside class="max-w-[72px] border-r flex flex-col border-gray p-2 md:p-4" @touchmove.stop>
         <ul class="list-none flex gap-3 flex-col">
             <GroupItem v-for="(group, key) in groups" :key="key" :group="group" :active="true"
                 :selected="selectedGroup.title === group.title" @click="handleGroupChange" />

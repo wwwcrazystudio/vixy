@@ -20,7 +20,7 @@
 
             <SearchInput class="mb-4" label="Поиск" v-model:value="searchQuery" />
 
-            <ul class="list-none overflow-auto scrollbar -mr-2.5 pr-2.5">
+            <ul class="list-none overflow-auto scrollbar -mr-2.5 pr-2.5 @touchmove.stop">
                 <li v-for="setting in filteredMenu" :key="setting.url">
                     <RouterLink class="flex px-2.5 py-2 rounded-lg" :to="`/chat/settings/${setting.url}`"
                         active-class="bg-accent text-white" v-slot="{ isActive }">

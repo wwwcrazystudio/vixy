@@ -58,7 +58,7 @@
             </div>
         </div>
 
-        <div class="p-6 overflow-auto grow shrink basis-3/6 flex flex-col-reverse">
+        <div class="p-6 overflow-auto grow shrink basis-3/6 flex flex-col-reverse" @touchmove.stop>
             <ul class="list-none grid gap-1">
                 <template v-for="(message, key) in contact.history" :key="key">
                     <ChatMessageItem v-if="!message.isNotification" :query="searchQuery" :message="message"
