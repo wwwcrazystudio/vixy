@@ -22,7 +22,7 @@
             </button>
 
             <transition name="fade">
-                <div class="absolute flex justify-center items-center left-0 top-0 h-full w-full text-sm backdrop-blur-md"
+                <div class="absolute flex justify-center items-center left-0 top-0 h-full w-full text-sm bg-white/90 sm:bg-white/30 backdrop-blur-md"
                     v-if="item.removed">
                     Видеозвонок удален.
                     <button class="text-accent" @click="$emit('restore', item)">
