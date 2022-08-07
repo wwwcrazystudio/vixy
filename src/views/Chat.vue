@@ -2,7 +2,7 @@
     <div class="flex bg-white h-screen overflow-hidden">
         <ChatSidebar v-model:selectedGroup="selectedGroup" :groups="groups" />
         <div class="grow shrink flex" v-if="isBaseChat">
-            <div class="lbasis-[31%] min-w-0 grow xl:grow-0 shrink flex flex-col border-r border-gray"
+            <div class="basis-[31%] lg:max-w-[31%] min-w-0 grow xl:grow-0 shrink flex flex-col border-r border-gray"
                 v-show="isTablet ? !selectedContact : true">
                 <!-- Group info -->
                 <div class="px-4 py-2 flex border-b border-gray">

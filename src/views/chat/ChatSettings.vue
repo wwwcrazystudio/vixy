@@ -1,6 +1,6 @@
 <template>
     <div class="grow shrink flex">
-        <div class="grow basis-[31%] xl:grow-0 p-4 shrink flex flex-col border-r border-gray"
+        <div class="grow basis-[31%] lg:max-w-[31%] xl:grow-0 p-4 shrink flex flex-col border-r border-gray"
             v-show="isTablet ? isBasePage : true">
             <div class="flex items-center mb-4">
                 <div class="font-medium text-lg">Настройки чата</div>

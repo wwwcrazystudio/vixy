@@ -105,7 +105,7 @@ watch(() => props.data, () => {
 
 .chart-container .dataset-units circle {
     fill: #fff !important;
-    stroke: #1940F3;
+    stroke: #1940F3 !important;
     r: 6;
     stroke-width: 6px;
     transition: 350ms;
