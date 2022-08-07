@@ -196,6 +196,20 @@
                 <Step4 />
             </Modal>
         </Overlay>
+
+        <Overlay v-if="showResendModal">
+            <ResendModal @close="showResendModal = false">
+                <Step4 />
+            </ResendModal>
+        </Overlay>
+
+        <Overlay v-if="showConfirmModal">
+            <ConfirmModal @close="showConfirmModal = false">
+                <Step4 />
+            </ConfirmModal>
+        </Overlay>
+
+        <RegNotification v-if="regSendNotification" @close="regSendNotification = false" @resend="showResendModal = true" />
     </div>
 </template>
 
@@ -213,6 +227,9 @@ import ChatIcomingCall from '../components/Chat/CallNotification.vue'
 import Step4 from '@/components/Modals/Reg/Step4.vue'
 import Modal from '@/components/Modals/Modal.vue'
 import Overlay from '../components/Overlay.vue'
+import ChatSidebar from '../components/Chat/ChatSidebar.vue'
+import RegNotification from '../components/RegNotification.vue'
+import ResendModal from '../components/Modals/ResendModal.vue'
 
 import bannerimg from '@/assets/placeholder/phone.jpg'
 import SearchInput from '../components/Form/SearchInput.vue'
@@ -220,8 +237,8 @@ import Messages from '../components/Chat/Messages.vue'
 import type { ContactItemType, FileItemType, GroupItemType } from '@/types/components.interface'
 import { placeholderContacts } from '@/placeholderData/contacts'
 import { placeholderGroups } from '@/placeholderData/groups'
+import ConfirmModal from '../components/Modals/ConfirmModal.vue'
 
-import ChatSidebar from '../components/Chat/ChatSidebar.vue'
 
 unSafari()
 
@@ -299,8 +316,12 @@ const blacklistNotification = ref<boolean>(false)
 const unblacklistNotification = ref<boolean>(false)
 const groupChangedNotification = ref<boolean>(false)
 
+const regSendNotification = ref<boolean>(true)
+
 // Modals
 const connectSiteModal = ref<boolean>(false)
+const showResendModal = ref<boolean>(false)
+const showConfirmModal = ref<boolean>(false)
 
 // User has installed widget?
 const hasWidget = ref<boolean>(false)

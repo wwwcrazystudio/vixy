@@ -7,7 +7,7 @@
             Заблокировать пользователя?
         </div>
 
-        <div class="mx-auto mb-6 text-center font-light text-md">
+        <div class="mx-auto mb-6 text-center font-light text-lg">
             Вы уверены, что хотите заблокировать пользователя <br />
             {{ username }}?
         </div>
