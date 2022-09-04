@@ -1,18 +1,18 @@
 <template>
-    <Modal class="max-w-[calc(100%-1rem)]">
+    <Modal>
         <div>
             <h1 class="text-2xl sm:text-32 mb-2 sm:mb-6 text-center">
                 Войти в Re:meet
             </h1>
             <div class="mb-4 text-center font-light">
-                Продолжить с помощью социальных сетей
+                Продолжить с&nbsp;помощью социальных сетей
             </div>
             <SocialsLogin class="mb-4 sm:mb-6" />
 
             <div
                 class="w-5/6 sm:w-full text-sm md:text-base mx-auto mb-4 text-center"
             >
-                или создайте новый аккаунт с использованием e-mail
+                или создайте новый аккаунт с&nbsp;использованием e-mail
             </div>
 
             <Input
@@ -40,7 +40,7 @@
             <div
                 class="mb-2 md:mb-4 text-center font-light md:w-5/6 m-auto text-sm md:text-base"
             >
-                Нажимая на кнопку, вы даете согласие на
+                Нажимая на&nbsp;кнопку, вы&nbsp;даете согласие&nbsp;на
                 <a class="text-accent underline font-normal text-sm" href="">
                     обработку своих персональных данных.
                 </a>
@@ -49,7 +49,7 @@
             <div
                 class="pt-4 mt-4 md:pt-6 md:mt-6 border-t border-gray text-center text-sm md:text-base"
             >
-                У вас еще нет аккаунта?
+                У&nbsp;вас еще нет аккаунта?
                 <RouterLink class="text-accent undeline" to="/reg">
                     Зарегистрироваться
                 </RouterLink>

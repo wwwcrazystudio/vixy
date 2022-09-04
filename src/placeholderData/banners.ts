@@ -3,7 +3,7 @@ import bannerimg from '@/assets/placeholder/phone.jpg'
 export const placeholderBanners = [
     {
         img: bannerimg,
-        title: 'Xiaomi / Смартфон Redmi 9A 2/32Gb...',
+        title: 'Xiaomi / Смартфон Redmi 9A 2/32Gb',
         price: '9 093 ₽',
         discount: '15 093 ₽',
     },
@@ -21,7 +21,7 @@ export const placeholderBanners = [
     },
     {
         img: bannerimg,
-        title: 'Xiaomi / Смартфон Redmi 9A 2/32Gb...',
+        title: 'Xiaomi / Смартфон Redmi 9A 2/32Gb',
         price: '9 093 ₽',
         discount: '15 093 ₽',
     },

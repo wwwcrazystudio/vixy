@@ -74,7 +74,7 @@ const router = createRouter({
                 {
                     path: 'analytics',
                     name: 'analytics',
-                    component: () => import('../views/chat/Analytics.vue'),
+                    component: () => import('../views/chat/Charts.vue'),
                 },
                 {
                     path: 'settings',

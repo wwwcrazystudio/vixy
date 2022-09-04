@@ -24,10 +24,10 @@
                             </svg>
                         </div>
                         <div>
-                            <div class="text-sm font-medium">
+                            <div class="text-sm md:text-base font-medium">
                                 {{ callType }}
                             </div>
-                            <div class="text-xs opacity-60 flex">
+                            <div class="text-xs md:text-sm opacity-60 flex">
                                 <div>
                                     {{ message.call.duration }}
                                     <a class="underline" href="">Запись звонка.</a>
@@ -50,10 +50,10 @@
                             </svg>
                         </div>
                         <div>
-                            <div class="font-medium text-sm w-5/6 whitespace-nowrap overflow-hidden text-ellipsis">
+                            <div class="text-sm md:text-base font-medium w-5/6 whitespace-nowrap overflow-hidden text-ellipsis">
                                 {{ message.file.file.name }}
                             </div>
-                            <div class="text-xs opacity-60 flex">
+                            <div class="text-xs md:text-sm opacity-60 flex">
                                 {{ formatBytes(message.file.file.size) }}
 
                                 <a class="underline ml-2" :href="message.file.url">
@@ -65,7 +65,7 @@
                     </div>
                 </template>
                 <template v-if="!message.file && !message.call">
-                    <div class="text-xs pr-11 relative">
+                    <div class="text-sm pr-11 relative">
                         {{ message.content }}
                         <span class="opacity-60 flex items-center absolute right-0 bottom-0" :class="
                             message.unreaded &&

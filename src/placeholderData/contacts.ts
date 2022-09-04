@@ -196,4 +196,99 @@ export const placeholderContacts:ContactItemType[] = [
             },
         ],
     },
+      {
+        id: '3',
+        img: '',
+        name: 'Безымянный Желтый Ящер',
+        operator: {
+            name: 'Дмитрий',
+            img: operatorImg,
+        },
+        color: '',
+        url: '12345',
+        excerpt: '',
+        history: [
+            {
+                id: '9',
+                content: 'Тестовое сообщение для поиска',
+                date: '16:23',
+                isOperatorMessage: true,
+            },
+            {
+                id: '10',
+                date: '16:23',
+                call: {
+                    type: 'incoming',
+                    duration: '14 мин.',
+                },
+                unreaded: false,
+            },
+            {
+                id: '11',
+                content: 'Спасибо, это круто. мне ок.',
+                date: '16:23',
+                isOperatorMessage: true,
+                unreaded: true,
+            },
+            {
+                id: '12',
+                content: 'Привет! Спасибо!',
+                date: '16:23',
+            },
+            {
+                id: '13',
+                content: '123',
+                date: '16:23',
+                isOperatorMessage: true,
+            },
+            {
+                id: '14',
+                date: '16:23',
+                call: {
+                    type: 'incoming',
+                    duration: '14 мин.',
+                },
+                unreaded: false,
+            },
+            {
+                id: '15',
+                content: 'Спасибо, это круто. мне ок.',
+                date: '16:23',
+                isOperatorMessage: true,
+                unreaded: true,
+            },
+            {
+                id: '16',
+                content: 'Привет! Спасибо!',
+                date: '16:23',
+            },
+            {
+                id: '17',
+                content: '123',
+                date: '16:23',
+                isOperatorMessage: true,
+            },
+            {
+                id: '18',
+                date: '16:23',
+                call: {
+                    type: 'incoming',
+                    duration: '14 мин.',
+                },
+                unreaded: false,
+            },
+            {
+                id: '19',
+                content: 'Спасибо, это круто. мне ок.',
+                date: '16:23',
+                isOperatorMessage: true,
+                unreaded: true,
+            },
+            {
+                id: '20',
+                content: 'Привет! Спасибо!',
+                date: '16:23',
+            },
+        ],
+    },
 ]

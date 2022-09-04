@@ -1,7 +1,7 @@
 <template>
     <Overlay>
         <RegModal @finish="showHelloModal = true" v-if="!showHelloModal" />
-        <HelloModal v-show="showHelloModal" />
+        <HelloModal v-show="showHelloModal" hideCloseBtn />
     </Overlay>
 </template>
 

@@ -14,16 +14,17 @@
             :class="pseudoElements"
             :for="id"
         >
-            <span class="block text-2xl mb-2">{{ label }}</span>
-            <span class="block text-sm mb-6">{{ subheading }}</span>
+            <span class="block text-2xl mb-2 text-ellipsis overflow-hidden" v-html="label"></span>
+            <span class="block text-sm mb-6" v-html="subheading"></span>
 
             <span
                 class="block mb-2"
                 :class="!advantage.active && 'opacity-40'"
                 v-for="advantage in advantages"
                 :key="advantage.label"
+                v-html="advantage.label"
             >
-                {{ advantage.label }}
+                
             </span>
 
             <span class="block mt-4 text-32">

@@ -18,18 +18,18 @@
             v-model:value="size"
         />
 
-        <button
+        <Button
             class="bg-accent rounded-lg p-3 w-full text-white mb-4"
             @click="$emit('onStepComplete')"
         >
             Продолжить
-        </button>
+        </Button>
 
         <div class="mb-4 text-center font-light w-full m-auto">
-            Вы создаете новый аккаунт для example@ex.com. Если вы не хотите
-            создавать новый аккаунт, вы можете войти
+           Вы&nbsp;создаете новый аккаунт для example@ex.com. Если вы&nbsp;не&nbsp;хотите
+создавать новый аккаунт, вы&nbsp;можете войти
             <a class="text-accent underline font-normal text-sm" href="">
-                с другим аккаунтом.
+                с&nbsp;другим аккаунтом.
             </a>
         </div>
     </div>
@@ -39,6 +39,7 @@
 import { ref } from 'vue'
 import Select from '../../Form/Select.vue'
 import Input from '../../Form/Input.vue'
+import Button from '../../Button.vue'
 
 export interface Option {
     label: string

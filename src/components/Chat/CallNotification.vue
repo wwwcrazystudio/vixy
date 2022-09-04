@@ -1,5 +1,5 @@
 <template>
-    <div class="p-4 bg-black/80 rounded-xl">
+    <div class="p-2 sm:p-4 bg-black/80 rounded-xl">
         <div class="flex mb-4 items-center overflow-hidden">
             <ChatContactIcon class="border-2 border-white basis-10 w-10 h-10 mr-2 text-xs min-w-[40px]"
                 :name="contact.name" :color="contact.color" v-if="!contact.img" />

@@ -1,6 +1,6 @@
 <template>
     <li>
-        <button class="w-10 h-10 rounded-full border border-gray block" :class="
+        <button class="w-6 h-6 sm:w-10 sm:h-10 rounded-full border border-gray block" :class="
             selected && `outline outline-offset-2 outline-2 outline-accent`
         " @click="$emit('click', group)">
             <picture class="block">

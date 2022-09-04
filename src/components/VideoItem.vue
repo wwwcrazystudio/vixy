@@ -1,11 +1,11 @@
 <template>
     <li>
         <div class="relative p-2 pr-4 flex gap-4 items-center rounded-lg border border-gray">
-            <picture class="w-14 h-12 block cursor-pointer" @click="$emit('select', item)">
+            <picture class="basis-14 shrink-0 grow-0 w-14 h-12 block cursor-pointer" @click="$emit('select', item)">
                 <img :src="item.img" :alt="item.title" class="rounded-sm w-full h-full" />
             </picture>
-            <div>
-                <div class="block font-medium text-sm cursor-pointer" @click="$emit('select', item)">
+            <div class="overflow-hidden">
+                <div class="block font-medium text-sm cursor-pointer text-ellipsis whitespace-nowrap overflow-hidden" @click="$emit('select', item)">
                     {{ item.title }}
                 </div>
                 <div class="text-xs opacity-60">{{ item.duration }}</div>
@@ -22,12 +22,14 @@
             </button>
 
             <transition name="fade">
-                <div class="absolute flex justify-center items-center left-0 top-0 h-full w-full text-sm bg-white/90 sm:bg-white/30 backdrop-blur-md"
+                <div class="absolute flex justify-center items-center left-0 top-0 h-full w-full text-sm bg-white/90 sm:bg-white/30 backdrop-blur-md rounded-lg"
                     v-if="item.removed">
-                    Видеозвонок удален.
-                    <button class="text-accent" @click="$emit('restore', item)">
-                        Восстановить.
-                    </button>
+                    <span>
+                        Видеозвонок удален.
+                        <button class="ml-1 text-accent" @click="$emit('restore', item)">
+                            Восстановить.
+                        </button>
+                    </span>
                 </div>
             </transition>
         </div>

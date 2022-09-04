@@ -17,7 +17,7 @@
         </div>
 
         <div class="text-md sm:text-lg mb-6 text-center">
-            Попробуйте 14 дней (240 стримов) бесплатно
+            Попробуйте 14&nbsp;дней (240&nbsp;стримов) бесплатно
         </div>
 
         <div class="flex flex-col sm:flex-row">
@@ -55,10 +55,10 @@ defineEmits<Emits>()
 const solutions = [
     {
         label: 'Простой',
-        subheading: 'До 150 трансляций в месяц',
+        subheading: 'До&nbsp;150 трансляций в&nbsp;месяц',
         advantages: [
             {
-                label: 'До 3000 трансляций в месяц',
+                label: 'До&nbsp;3000 трансляций в&nbsp;месяц',
                 active: true,
             },
             {
@@ -76,10 +76,10 @@ const solutions = [
     },
     {
         label: 'Простой',
-        subheading: 'До 200 трансляций в месяц',
+        subheading: 'До&nbsp;200 трансляций в&nbsp;месяц',
         advantages: [
             {
-                label: 'До 3000 трансляций в месяц',
+                label: 'До&nbsp;3000 трансляций в&nbsp;месяц',
                 active: true,
             },
             {
@@ -98,10 +98,10 @@ const solutions = [
     },
     {
         label: 'Про+',
-        subheading: 'До 1000 трансляций в месяц',
+        subheading: 'До&nbsp;1000 трансляций в&nbsp;месяц',
         advantages: [
             {
-                label: 'До 3000 трансляций в месяц',
+                label: 'До&nbsp;3000 трансляций в&nbsp;месяц',
                 active: true,
             },
             {

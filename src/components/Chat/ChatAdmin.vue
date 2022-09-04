@@ -1,10 +1,10 @@
 <template>
     <div class="flex gap-2.5 items-center p-2 pr-4 bg-black/80 rounded-lg text-white ">
-        <picture class="w-10 h-10 relative rounded-full block border-[2px] border-white">
+        <picture class="w-10 h-10 basis-auto grow-0 shrink-0 relative rounded-full block border-[2px] border-white">
             <img :src="person.img" :alt="person.name" class="rounded-full w-full h-full object-cover" />
         </picture>
-        <div class="flex flex-col">
-            <div class="block text-sm">{{ person.name }}</div>
+        <div class="flex flex-col overflow-hidden">
+            <div class="block text-sm text-ellipsis whitespace-nowrap overflow-hidden">{{ person.name }}</div>
             <div class="text-xs opacity-60">{{ person.job }}</div>
         </div>
         <RouterLink class="block ml-auto" to="/">

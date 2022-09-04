@@ -12,7 +12,7 @@
             <input
                 :id="id"
                 type="text"
-                class="rounded-lg text-sm p-2.5 pl-10 w-full bg-[#F4F4F4] transition appearance-none bg-[url('@/assets/icons/magnify.svg')] bg-no-repeat bg-[0.5rem_center]"
+                class="rounded-lg md:text-sm p-2.5 pl-10 pr-10 w-full bg-[#F4F4F4] transition appearance-none bg-[url('@/assets/icons/magnify.svg')] bg-no-repeat bg-[0.5rem_center]"
                 :value="value"
                 @input="handleInput"
             />

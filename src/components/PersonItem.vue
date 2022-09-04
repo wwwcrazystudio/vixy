@@ -14,7 +14,7 @@
             class="relative p-2 rounded-md flex gap-4 items-center hover:bg-[#F4F4F4] peer-checked:bg-accent peer-checked:text-white after:transition after:bg-checkWhite after:opacity-0 after:absolute after:right-5 after:top-0 after:bottom-0 after:m-auto after:w-5 after:w-5 after:bg-no-repeat after:bg-center transition cursor-pointer duration-300 peer-checked:after:opacity-100"
         >
             <picture
-                class="w-11 h-11 relative rounded-full block border border-gray before:absolute before:rounded-full before:-right-0.5 before:-bottom-0.5 before:w-3 before:h-3 before:bg-gray before:border-2 before:border-white"
+                class="w-11 h-11 flex-auto grow-0 shrink-0 relative rounded-full block border border-gray before:absolute before:rounded-full before:-right-0.5 before:-bottom-0.5 before:w-3 before:h-3 before:bg-gray before:border-2 before:border-white"
                 :class="person.online && 'before:bg-green'"
             >
                 <img
@@ -23,8 +23,8 @@
                     class="rounded-full w-full h-full"
                 />
             </picture>
-            <span>
-                <span class="block">{{ person.name }}</span>
+            <span class="min-w-0 pr-15">
+                <span class="block overflow-hidden text-ellipsis whitespace-nowrap">{{ person.name }}</span>
                 <span class="text-sm opacity-60">{{ person.tel }}</span>
             </span>
         </label>

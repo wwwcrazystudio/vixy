@@ -1,6 +1,6 @@
 <template>
     <button
-        class="rounded-lg py-3 px-3 md:px-6 disabled:cursor-not-allowed disabled:opacity-40 transition"
+        class="rounded-lg py-3 px-3 md:px-6 disabled:cursor-not-allowed disabled:opacity-60 transition"
         :class="btnColor"
         @click="$emit('click')"
     >
@@ -23,9 +23,9 @@ const props = defineProps<BtnProps>()
 defineEmits<BtnEmits>()
 
 const btnColor = computed(() => {
-    if (props.light) return 'bg-darkgray'
-    if (props.transparent) return null
+    if (props.light) return 'bg-darkgray hover:bg-[#EBEBEB] active:bg-[#E0E0E0] focus:bg-[#E0E0E0]'
+    if (props.transparent) return
 
-    return 'bg-accent text-white'
+    return 'bg-accent text-white hover:bg-[#3053F4] active:bg-[#1433C2] focus:bg-[#1433C2]'
 })
 </script>

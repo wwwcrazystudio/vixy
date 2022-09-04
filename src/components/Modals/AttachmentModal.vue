@@ -1,6 +1,5 @@
 <template>
-    <Modal
-        class="!p-0 !max-w-[288px] rounded-2xl md:fixed md:top-0 left-0 right-0 bottom-0 z-50"
+    <Modal modalClass="!p-0 !max-w-[288px] rounded-2xl md:fixed md:top-0 left-0 right-0 bottom-0 z-50"
         @close="$emit('close')">
         <ul class="list-none p-6 pb-4">
             <li class="flex items-center" v-for="(file, key) in files" :key="key">

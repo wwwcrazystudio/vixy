@@ -1,14 +1,14 @@
 <template>
     <div class="flex bg-white h-screen overflow-hidden">
         <ChatSidebar v-model:selectedGroup="selectedGroup" :groups="groups" />
-        <div class="grow shrink flex" v-if="isBaseChat">
-            <div class="basis-[31%] lg:max-w-[31%] min-w-0 grow xl:grow-0 shrink flex flex-col border-r border-gray"
+        <div class="grow shrink flex min-w-0" v-if="isBaseChat">
+            <div class="w-[31%] min-w-0 grow lg:grow-0 shrink-0 basis-auto flex flex-col border-r border-gray"
                 v-show="isTablet ? !selectedContact : true">
                 <!-- Group info -->
-                <div class="px-4 py-2 flex border-b border-gray">
+                <div class="px-2 sm:px-4 py-2 flex border-b border-gray">
                     <div class="pl-3">
                         <div
-                            class="text-sm relative before:w-1.5 before:h-1.5 before:absolute before:-left-3 before:top-0 before:bottom-0 before:m-auto before:rounded-full before:bg-green">
+                            class="text-sm relative before:w-1.5 before:h-1.5 before:absolute before:-left-3 before:top-2 before:rounded-full before:bg-green">
                             My business
                         </div>
                         <div class="text-xs opacity-60">
@@ -17,33 +17,30 @@
                     </div>
 
                     <div class="ml-auto flex">
-                        <IconBtn class="ml-2" @click="$router.push('/chat/analytics')">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        <IconBtn class="ml-2 !w-10 !h-10" @click="$router.push('/chat/analytics')">
+                            <svg class="max-w-[80%]" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <g opacity="0.4">
-                                    <path
-                                        d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5ZM19 5H5V19H19V5ZM12 7C12.5523 7 13 7.44772 13 8V16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16V8C11 7.44772 11.4477 7 12 7ZM16 9C16.5523 9 17 9.44772 17 10V16C17 16.5523 16.5523 17 16 17C15.4477 17 15 16.5523 15 16V10C15 9.44772 15.4477 9 16 9ZM8 11C8.55228 11 9 11.4477 9 12V16C9 16.5523 8.55228 17 8 17C7.44772 17 7 16.5523 7 16V12C7 11.4477 7.44772 11 8 11Z"
-                                        fill="black" />
-                                </g>
+                                <path
+                                    d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5ZM19 5H5V19H19V5ZM12 7C12.5523 7 13 7.44772 13 8V16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16V8C11 7.44772 11.4477 7 12 7ZM16 9C16.5523 9 17 9.44772 17 10V16C17 16.5523 16.5523 17 16 17C15.4477 17 15 16.5523 15 16V10C15 9.44772 15.4477 9 16 9ZM8 11C8.55228 11 9 11.4477 9 12V16C9 16.5523 8.55228 17 8 17C7.44772 17 7 16.5523 7 16V12C7 11.4477 7.44772 11 8 11Z"
+                                    fill="black" />
                             </svg>
                         </IconBtn>
-                        <IconBtn class="ml-2" label="Настройки чата" @click="$router.push('/chat/settings')">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        <IconBtn class="ml-2 !w-10 !h-10" label="Настройки чата"
+                            @click="$router.push('/chat/settings')">
+                            <svg class="max-w-[80%]" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <g opacity="0.4">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M2 5.77778C2 4.79594 2.80589 4 3.8 4H18.2C19.1941 4 20 4.79594 20 5.77778V12.3414C19.4341 12.1414 18.8293 12.0239 18.2 12.0033V5.77778H3.8V15.5556H8.3C8.53869 15.5556 8.76761 15.6492 8.9364 15.8159L11 17.854L12.1337 16.7343C12.0461 17.1423 12 17.5658 12 18C12 18.4292 12.0451 18.8478 12.1307 19.2514L11.6364 19.7397C11.2849 20.0868 10.7151 20.0868 10.3636 19.7397L7.92721 17.3333H3.8C2.80589 17.3333 2 16.5374 2 15.5556V5.77778ZM5.6 8.88889C5.6 8.39797 6.00294 8 6.5 8H15.5C15.9971 8 16.4 8.39797 16.4 8.88889C16.4 9.37981 15.9971 9.77778 15.5 9.77778H6.5C6.00294 9.77778 5.6 9.37981 5.6 8.88889ZM5.6 12.4444C5.6 11.9535 6.00294 11.5556 6.5 11.5556H11.9C12.3971 11.5556 12.8 11.9535 12.8 12.4444C12.8 12.9354 12.3971 13.3333 11.9 13.3333H6.5C6.00294 13.3333 5.6 12.9354 5.6 12.4444ZM16.8033 15.1108C16.8489 14.4897 17.3673 14 18 14C18.6327 14 19.1511 14.4897 19.1967 15.1108C19.6682 14.7039 20.381 14.7242 20.8284 15.1716C21.2758 15.619 21.2961 16.3318 20.8892 16.8033C21.5103 16.8489 22 17.3672 22 18C22 18.6327 21.5103 19.1511 20.8892 19.1967C21.2961 19.6682 21.2759 20.381 20.8284 20.8284C20.381 21.2758 19.6682 21.2961 19.1967 20.8892C19.1511 21.5103 18.6327 22 18 22C17.3673 22 16.8489 21.5103 16.8033 20.8892C16.3318 21.2961 15.619 21.2759 15.1716 20.8284C14.7241 20.381 14.7039 19.6682 15.1108 19.1967C14.4897 19.1511 14 18.6327 14 18C14 17.3672 14.4897 16.8489 15.1108 16.8033C14.7039 16.3318 14.7242 15.619 15.1716 15.1716C15.619 14.7242 16.3318 14.7039 16.8033 15.1108ZM19.2 18C19.2 18.6627 18.6627 19.2 18 19.2C17.3373 19.2 16.8 18.6627 16.8 18C16.8 17.3373 17.3373 16.8 18 16.8C18.6627 16.8 19.2 17.3373 19.2 18Z"
-                                        fill="black" />
-                                </g>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M2 5.77778C2 4.79594 2.80589 4 3.8 4H18.2C19.1941 4 20 4.79594 20 5.77778V12.3414C19.4341 12.1414 18.8293 12.0239 18.2 12.0033V5.77778H3.8V15.5556H8.3C8.53869 15.5556 8.76761 15.6492 8.9364 15.8159L11 17.854L12.1337 16.7343C12.0461 17.1423 12 17.5658 12 18C12 18.4292 12.0451 18.8478 12.1307 19.2514L11.6364 19.7397C11.2849 20.0868 10.7151 20.0868 10.3636 19.7397L7.92721 17.3333H3.8C2.80589 17.3333 2 16.5374 2 15.5556V5.77778ZM5.6 8.88889C5.6 8.39797 6.00294 8 6.5 8H15.5C15.9971 8 16.4 8.39797 16.4 8.88889C16.4 9.37981 15.9971 9.77778 15.5 9.77778H6.5C6.00294 9.77778 5.6 9.37981 5.6 8.88889ZM5.6 12.4444C5.6 11.9535 6.00294 11.5556 6.5 11.5556H11.9C12.3971 11.5556 12.8 11.9535 12.8 12.4444C12.8 12.9354 12.3971 13.3333 11.9 13.3333H6.5C6.00294 13.3333 5.6 12.9354 5.6 12.4444ZM16.8033 15.1108C16.8489 14.4897 17.3673 14 18 14C18.6327 14 19.1511 14.4897 19.1967 15.1108C19.6682 14.7039 20.381 14.7242 20.8284 15.1716C21.2758 15.619 21.2961 16.3318 20.8892 16.8033C21.5103 16.8489 22 17.3672 22 18C22 18.6327 21.5103 19.1511 20.8892 19.1967C21.2961 19.6682 21.2759 20.381 20.8284 20.8284C20.381 21.2758 19.6682 21.2961 19.1967 20.8892C19.1511 21.5103 18.6327 22 18 22C17.3673 22 16.8489 21.5103 16.8033 20.8892C16.3318 21.2961 15.619 21.2759 15.1716 20.8284C14.7241 20.381 14.7039 19.6682 15.1108 19.1967C14.4897 19.1511 14 18.6327 14 18C14 17.3672 14.4897 16.8489 15.1108 16.8033C14.7039 16.3318 14.7242 15.619 15.1716 15.1716C15.619 14.7242 16.3318 14.7039 16.8033 15.1108ZM19.2 18C19.2 18.6627 18.6627 19.2 18 19.2C17.3373 19.2 16.8 18.6627 16.8 18C16.8 17.3373 17.3373 16.8 18 16.8C18.6627 16.8 19.2 17.3373 19.2 18Z"
+                                    fill="black" />
                             </svg>
                         </IconBtn>
                     </div>
                 </div>
 
-                <SearchInput class="m-4 mb-2" label="Пользователи, сообщения..." v-model:value="searchQuery" />
+                <SearchInput class="m-2 sm:m-4 mb-2" label="Пользователи, сообщения..." v-model:value="searchQuery" />
 
-                <ChatIcomingCall v-if="incomingCall && coloredContacts" class="m-4 mt-0" :contact="coloredContacts[0]"
-                    :banner="banner" />
+                <ChatIcomingCall v-if="incomingCall && coloredContacts" class="m-2 sm:m-4 mt-0"
+                    :contact="coloredContacts[0]" :banner="banner" />
 
                 <!-- No contacts -->
                 <div class="flex flex-col items-center m-auto" v-if="!contacts?.length">
@@ -71,13 +68,12 @@
                 </div>
 
                 <!-- Contacts list -->
-                <ul class="overflow-hidden grid grid-cols-1" @touchmove.stop v-else>
-                    <ChatContactItem class="overflow-hidden" v-for="(contact, key) in filteredContacts" :item="contact"
-                        :key="key" />
+                <ul class="overflow-auto scrollbar grid grid-cols-1" @touchmove.stop v-else>
+                    <ChatContactItem v-for="(contact, key) in filteredContacts" :item="contact" :key="key" />
                 </ul>
             </div>
 
-            <div class="grow basis-auto shrink flex bg-darkgray" v-show="isTablet ? selectedContact : true">
+            <div class="basis-auto shrink grow flex bg-darkgray min-w-0" v-show="isTablet ? selectedContact : true">
                 <!-- Messages list -->
                 <Messages :contact="selectedContact" :search-query="searchQuery" v-if="selectedContact"
                     @unblacklist="unblacklistNotification = true" @upload-file="handleFileUpload" />
@@ -116,7 +112,7 @@
                         </div>
                         <div class="mb-2">Пора принять Ваш первый звонок!</div>
                         <div class="opacity-80 text-sm text-center">
-                            Если Вы еще не установили кнопку на сайт, то
+                            Если Вы&nbsp;еще не&nbsp;установили кнопку на&nbsp;сайт, то
                             <a class="text-accent" href="">
                                 обязательно сделайте это.
                             </a>
@@ -154,6 +150,16 @@
             </transition>
 
             <transition name="slide">
+                <ChatPopup v-if="groupChangedNotification" @close="groupChangedNotification = false">
+                    <div class="bg-salad w-6 h-6 rounded-full absolute left-4 top-4 grid place-content-center">
+                        <img :src="selectedGroup.icon" class="w-full h-full object-cover" alt="">
+                    </div>
+                    <div class="font-bold mb-2">{{ selectedGroup.title }}</div>
+                    <div class="opacity-70 font-sm">Вы сменили чат</div>
+                </ChatPopup>
+            </transition>
+
+            <transition name="slide">
                 <ChatPopup v-if="blacklistNotification" @close="blacklistNotification = false">
                     <div class="bg-red w-6 h-6 rounded-full absolute left-4 top-4 grid place-content-center">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -167,6 +173,8 @@
                 </ChatPopup>
             </transition>
 
+
+
             <transition name="slide">
                 <ChatPopup v-if="unblacklistNotification" @close="unblacklistNotification = false">
                     <div class="bg-salad w-6 h-6 rounded-full absolute left-4 top-4 grid place-content-center">
@@ -176,16 +184,6 @@
                     </div>
                     <div class="font-bold mb-2">Пользователь разблокирован</div>
                     <div class="opacity-70 font-sm">Unknown Purple Oyster</div>
-                </ChatPopup>
-            </transition>
-
-            <transition name="slide">
-                <ChatPopup v-if="groupChangedNotification" @close="groupChangedNotification = false">
-                    <div class="bg-salad w-6 h-6 rounded-full absolute left-4 top-4 grid place-content-center">
-                        <img :src="selectedGroup.icon" class="w-full h-full object-cover" alt="">
-                    </div>
-                    <div class="font-bold mb-2">{{ selectedGroup.title }}</div>
-                    <div class="opacity-70 font-sm">Вы сменили чат</div>
                 </ChatPopup>
             </transition>
         </div>
@@ -209,17 +207,17 @@
             </ConfirmModal>
         </Overlay>
 
-        <RegNotification v-if="regSendNotification" @close="regSendNotification = false" @resend="showResendModal = true" />
+        <RegNotification v-if="regSendNotification" @close="regSendNotification = false"
+            @resend="showResendModal = true" />
     </div>
 </template>
 
 <script setup lang="ts">
+import type { ContactItemType, FileItemType, GroupItemType } from '@/types/components.interface'
 import { unSafari } from '@/composables/unsafari'
 import { useRoute, useRouter } from 'vue-router'
 import { useMobileDetection } from '@/composables/useMobileDetection'
-
 import { computed, nextTick, onMounted, ref, toRaw, watch } from 'vue'
-
 import IconBtn from '@/components/Chat/IconBtn.vue'
 import ChatContactItem from '@/components/Chat/ContactItem.vue'
 import ChatPopup from '../components/Chat/Popup.vue'
@@ -230,15 +228,13 @@ import Overlay from '../components/Overlay.vue'
 import ChatSidebar from '../components/Chat/ChatSidebar.vue'
 import RegNotification from '../components/RegNotification.vue'
 import ResendModal from '../components/Modals/ResendModal.vue'
-
-import bannerimg from '@/assets/placeholder/phone.jpg'
 import SearchInput from '../components/Form/SearchInput.vue'
 import Messages from '../components/Chat/Messages.vue'
-import type { ContactItemType, FileItemType, GroupItemType } from '@/types/components.interface'
-import { placeholderContacts } from '@/placeholderData/contacts'
-import { placeholderGroups } from '@/placeholderData/groups'
 import ConfirmModal from '../components/Modals/ConfirmModal.vue'
 
+import { placeholderContacts } from '@/placeholderData/contacts'
+import { placeholderGroups } from '@/placeholderData/groups'
+import { placeholderBanners } from '@/placeholderData/banners'
 
 unSafari()
 
@@ -248,12 +244,7 @@ const route = useRoute()
 const router = useRouter()
 
 // Placeholders
-const banner = {
-    img: bannerimg,
-    title: 'Xiaomi / Смартфон Redmi 9A 2/32Gb...',
-    price: '9 093 ₽',
-    discount: '15 093 ₽',
-}
+const banner = placeholderBanners[0]
 
 const contacts = ref<ContactItemType[]>()
 
@@ -310,13 +301,15 @@ const colors = [
 ]
 
 // Popup notifications
-const regNotification = ref<boolean>(true)
+const regNotification = ref<boolean>(false)
 const missedCallNotification = ref<boolean>(false)
 const blacklistNotification = ref<boolean>(false)
 const unblacklistNotification = ref<boolean>(false)
 const groupChangedNotification = ref<boolean>(false)
 
 const regSendNotification = ref<boolean>(true)
+
+const notificationsCount = ref<number>(0)
 
 // Modals
 const connectSiteModal = ref<boolean>(false)
@@ -499,18 +492,25 @@ watch(
 )
 
 watch(() => selectedGroup.value, () => {
-    groupChangedNotification.value = true
+    if (!groupChangedNotification.value) {
+        groupChangedNotification.value = true
+        notificationsCount.value += 1
+
+        setTimeout(() => {
+            groupChangedNotification.value = false
+            notificationsCount.value -= 1
+        }, 2000)
+    }
     router.push(`/chat/`)
 
-    setTimeout(() => {
-        groupChangedNotification.value = false
-    }, 2000)
 })
 
 // Placeholder animations
 onMounted(() => {
     setTimeout(() => {
-        regNotification.value = false
+        regNotification.value = true
+        notificationsCount.value += 1
+
         hasWidget.value = true
         contacts.value = placeholderContacts as ContactItemType[]
 
@@ -518,11 +518,16 @@ onMounted(() => {
 
         setTimeout(() => {
             missedCallNotification.value = true
+            notificationsCount.value += 1
         }, 2000)
 
-        setTimeout(() => {
+        /* setTimeout(() => {
             missedCallNotification.value = false
-        }, 5000)
+            notificationsCount.value -= 1
+
+            regNotification.value = false
+            notificationsCount.value -= 1
+        }, 5000) */
     }, 2000)
 })
 </script>
@@ -530,11 +535,11 @@ onMounted(() => {
 <style scoped>
 .slide-enter-active,
 .slide-leave-active {
-    transition: transform 0.5s ease;
+    transition: top 0.5s ease;
 }
 
 .slide-enter-from,
 .slide-leave-to {
-    transform: translateY(-300px);
+    top: -300px;
 }
 </style>

@@ -1,24 +1,16 @@
 <template>
-    <Modal class="max-w-[calc(100%-1rem)]">
-        <div
-            class="mx-auto text-2xl sm:text-32 mb-2 sm:mb-6 font-medium text-center"
-        >
+    <Modal hideCloseBtn>
+        <div class="mx-auto text-2xl sm:text-32 mb-2 sm:mb-6 font-medium text-center">
             Изменить пароль
         </div>
         <div class="mx-auto mb-4 text-center font-light text-md sm:text-lg">
-            Введите новый пароль для входа в систему.
+            Введите новый пароль для входа в&nbsp;систему.
         </div>
 
-        <Input
-            class="mb-4"
-            type="password"
-            new-password
-            label="Новый пароль"
-            v-model:value="password"
-        />
+        <Input class="mb-4" type="password" new-password label="Новый пароль" v-model:value="password" />
 
         <div class="text-red text-sm mb-4">
-            Пароль должен быть более 8 символов, включать прописные буквы,
+            Пароль должен быть более 8&nbsp;символов, включать прописные буквы,
             содержать цифры
         </div>
 

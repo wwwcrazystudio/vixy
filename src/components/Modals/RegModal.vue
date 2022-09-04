@@ -1,21 +1,12 @@
 <template>
-    <Modal class="max-w-[calc(100%-1rem)]" :class="widthByStep">
-        <h1
-            class="text-2xl sm:text-32 mb-2 sm:mb-6 text-center"
-            v-if="currentStep < 4"
-        >
-            {{ heading }}
+    <Modal :modalClass="widthByStep" >
+        <h1 class="text-2xl sm:text-32 mb-2 sm:mb-6 text-center" v-if="currentStep < 4" v-html="heading">
+
         </h1>
-        <div class="mb-4 text-center font-light" v-if="currentStep < 4">
-            {{ subheading }}
+        <div class="mb-4 text-center font-light" v-if="currentStep < 4" v-html="subheading">
         </div>
-        <component
-            :is="Step"
-            :key="currentStep"
-            @onStepComplete="currentStep += 1"
-            @onStepBack="currentStep -= 1"
-            @finish="$emit('finish')"
-        />
+        <component :is="Step" :key="currentStep" @onStepComplete="currentStep += 1" @onStepBack="currentStep -= 1"
+            @finish="$emit('finish')" />
     </Modal>
 </template>
 
@@ -44,7 +35,7 @@ const widthByStep = computed(() => {
         return 'sm:!max-w-md'
     }
 
-    return null
+    return 'max-w-[calc(100%-1rem)]'
 })
 
 const Step = computed(() => {
@@ -67,11 +58,11 @@ const Step = computed(() => {
 const heading = computed(() => {
     switch (currentStep.value) {
         case 1:
-            return 'Присоединиться к Re:meet'
+            return 'Присоединиться к&nbsp;Re:meet'
         case 2:
-            return 'Добро пожаловать в Re:meet'
+            return 'Добро пожаловать в&nbsp;Re:meet'
         case 3:
-            return 'Как вы планируете использовать Re:meet?'
+            return 'Как вы&nbsp;планируете использовать Re:meet?'
         default:
             return ''
     }
@@ -80,9 +71,9 @@ const heading = computed(() => {
 const subheading = computed(() => {
     switch (currentStep.value) {
         case 1:
-            return 'Продолжить с помощью социальных сетей'
+            return 'Продолжить с&nbsp;помощью социальных сетей'
         case 2:
-            return 'Для начала, расскажите немного о себе'
+            return 'Для начала, расскажите немного о&nbsp;себе'
         case 3:
             return 'Выберите решение, которое подходит именно Вам:'
         default:

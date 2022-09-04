@@ -47,7 +47,7 @@
         <div class="mt-auto mx-auto mb-8">
             <Button class="w-80 block">Оценить качество связи</Button>
             <Button transparent class="w-80 block text-white mt-3"
-                >Вернуться к диалогам</Button
+                >Вернуться к&nbsp;диалогам</Button
             >
         </div>
     </div>

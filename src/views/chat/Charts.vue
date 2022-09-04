@@ -1,5 +1,5 @@
 <template>
-    <div class="grow shrink px-4 md:px-8 flex flex-col items-start bg-darkgray overflow-auto" @touchmove.stop>
+    <div class="grow shrink px-4 md:px-8 flex flex-col items-start bg-darkgray overflow-auto pb-8" @touchmove.stop>
         <div class="flex py-4 px-1.5 border-b border-gray w-full mb-6">
             <RouterLink class="flex items-center" to="/chat">
                 <svg class="mr-2" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -17,7 +17,7 @@
         <div class="flex flex-wrap md:items-center mb-6 w-full">
             <div class="font-medium w-full mb-4 md:mb-0 md:w-auto text-2xl md:text-32">Аналитика</div>
 
-            <div class="flex grow md:grow-0 justify-center items-center rounded-lg bg-white shadow-basic p-2 md:p-3 ml-auto">
+            <div class="flex grow md:grow-0 justify-center items-center rounded-lg bg-white shadow-basic  px-2 md:px-3 ml-auto h-12">
                 <button>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.41 7.42L10.83 12L15.41 16.59L14 18L8.00003 12L14 6L15.41 7.42Z" fill="black" />
@@ -32,7 +32,7 @@
                 </button>
             </div>
 
-            <button class="w-11 h-11 rounded-lg bg-white shadow-basic grid place-content-center ml-2 md:ml-4">
+            <button class="w-12 h-12 ml-4 rounded-lg bg-white shadow-basic grid place-content-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g opacity="0.4">
                         <path
@@ -44,22 +44,22 @@
         </div>
 
         <ul class="list-none w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 items-stretch mb-4">
-            <AnalyticsCard title="Нажатия на кнопку" number="650"
-                description="Общее количество нажатий на кнопку видеосвязи" />
+            <ChartsCard title="Нажатия на кнопку" number="650"
+                description="Общее количество нажатий на&nbsp;кнопку&nbsp;видеосвязи" />
 
-            <AnalyticsCard title="Количество запросов" number="24"
-                description="Общее количество нажатий на кнопку видеосвязи" />
+            <ChartsCard title="Количество запросов" number="24"
+                description="Общее количество нажатий на&nbsp;кнопку&nbsp;видеосвязи" />
 
-            <AnalyticsCard title="Количество стримов" number="344" description="Общее количество стримов" />
+            <ChartsCard title="Количество стримов" number="344" description="Общее количество&nbsp;стримов" />
 
-            <AnalyticsCard title="Средняя длительность"
+            <ChartsCard title="Средняя длительность"
                 number="3,45 <sup class='text-base align-super'>мин./стрим</sup>"
-                description="Общее среднее время длительности всех стримов" />
+                description="Общее среднее время длительности всех&nbsp;стримов" />
 
         </ul>
 
         <div class="shadow-basic bg-white rounded-2xl p-4 md:p-6 w-full">
-            <div>Статистика за выбранный период</div>
+            <div>Статистика за&nbsp;выбранный период</div>
             <div class="text-sm opacity-60 mb-4 md:mb-6">На этой неделе</div>
 
             <Chart :data="data" class="w-full" />
@@ -69,7 +69,7 @@
 
 <script setup lang="ts">
 import Chart from "../../components/Chart.vue";
-import AnalyticsCard from "@/components/AnalyticsCard.vue";
+import ChartsCard from "@/components/ChartsCard.vue";
 
 const data = {
     labels: ['1/1/2022', '2/1/2022', '3/1/2022', '4/1/2022', '5/1/2022', '6/1/2022', '7/1/2022'],

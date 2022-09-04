@@ -18,9 +18,10 @@
 
             <ul class="list-none overflow-auto scrollbar -mr-2.5 pr-2.5" @touchmove.stop>
                 <li v-for="setting in menu" :key="setting.url">
-                    <RouterLink class="flex px-2.5 py-2 rounded-lg" :to="`/chat/general-settings/${setting.url}`"
-                        active-class="bg-accent text-white" v-slot="{ isActive }">
-                        {{ setting.icon }} {{ setting.title }}
+                    <RouterLink class="flex px-0 md:px-2.5 py-2 rounded-lg"
+                        :to="`/chat/general-settings/${setting.url}`" active-class="bg-accent text-white"
+                        v-slot="{ isActive }">
+                        <span class="w-5 flex justify-center mr-3">{{ setting.icon }}</span> {{ setting.title }}
 
                         <span class="ml-auto">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"

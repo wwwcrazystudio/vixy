@@ -71,15 +71,20 @@ watch(() => props.data, () => {
     backdrop-filter: blur(2px);
     border-radius: 4px;
     font-size: 16px;
-    padding: 8px;
+    padding: 4px 8px;
     align-items: center;
     max-width: 70px;
     transform: translateY(-10px);
 }
 
+.graph-svg-tip.comparison li {
+    padding: 0 !important;
+    margin-bottom: 4px;
+}
+
 .graph-svg-tip.comparison .title {
     font-size: 0.75rem;
-    padding: 0;
+    padding: 0 !important;
 }
 
 .graph-svg-tip.comparison li {
@@ -89,9 +94,9 @@ watch(() => props.data, () => {
 }
 
 .graph-svg-tip .svg-pointer {
-    border-top-color: rgba(0, 0, 0, 0.6);
+    border-top-color: rgba(0, 0, 0, 0.6) !important;
     backdrop-filter: blur(2px);
-    margin: 0 0 -17px -5px;
+    margin: 0 0 -14px -5px !important;
 }
 
 .chart-container .dataset-units .line-graph-path {

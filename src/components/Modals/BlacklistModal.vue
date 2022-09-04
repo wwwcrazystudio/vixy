@@ -1,14 +1,13 @@
 <template>
-    <Modal
-        class="max-w-[calc(100%-1rem)] md:!max-w-md rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 bottom-0 z-50"
-        @close="$emit('close')"
-    >
-        <div class="mx-auto text-2xl mb-2 sm:mb-6 font-medium text-center">
+    <Modal class="pb-0"
+        modalClass="max-w-none w-full rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 mb-0 md:mb-auto bottom-0 z-50 h-fit"
+        @close="$emit('close')">
+        <div class="mx-auto lg:text-2xl mb-2 sm:mb-6 font-medium text-center">
             Заблокировать пользователя?
         </div>
 
-        <div class="mx-auto mb-6 text-center font-light text-lg">
-            Вы уверены, что хотите заблокировать пользователя <br />
+        <div class="mx-auto mb-6 text-center font-light text-base lg:text-lg">
+            Вы&nbsp;уверены, что хотите заблокировать&nbsp;пользователя <br />
             {{ username }}?
         </div>
 

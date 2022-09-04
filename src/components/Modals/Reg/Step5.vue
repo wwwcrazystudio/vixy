@@ -4,12 +4,12 @@
         <div class="mb-6 font-light">
             <p class="mb-4">
                 <b>
-                    All you have to do now is place the code on your website and
-                    you’re ready to go!
+                    All you have to&nbsp;do&nbsp;now is&nbsp;place the code on&nbsp;your website and
+                    you&rsquo;re ready to&nbsp;go!
                 </b>
             </p>
             <p class="mb-4">
-                ‍💻 If you have trouble doing this yourself — send the code to
+                ‍💻 If&nbsp;you have trouble doing this yourself&nbsp;&mdash; send the code to
                 your website developer.
                 <a class="text-accent underline" href=""> See instructions </a>
                 and <a class="text-accent underline" href="">FAQ.</a>
@@ -17,14 +17,14 @@
             <p class="mb-4">
                 🆘 Or,
                 <a href="" class="text-accent underline">
-                    ask for a help on our website,
+                    ask for a&nbsp;help on&nbsp;our website,
                 </a>
-                we will help you to connect it.
+                we&nbsp;will help you to&nbsp;connect&nbsp;it.
             </p>
 
             <p class="mb-4">
-                🤳 All the settings and the management of your Live-chat happens
-                here in this messenger. So you won’t need to use any additional
+                🤳 All the settings and the management of&nbsp;your Live-chat happens
+                here in&nbsp;this messenger. So&nbsp;you won&rsquo;t need to&nbsp;use any additional
                 applications.
             </p>
         </div>

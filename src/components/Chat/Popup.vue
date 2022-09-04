@@ -1,6 +1,6 @@
 <template>
     <div
-        class="p-4 pl-12 border w-full h-fit mx-auto max-w-[320px] md:max-w-[350px] border-gray bg-white rounded-2xl shadow-popup z-20 absolute top-10 left-0 md:left-[unset] right-0 md:right-6">
+        class="p-4 pl-12 pr-12 border w-full h-fit mx-auto max-w-[320px] md:max-w-[350px] border-gray bg-white rounded-2xl shadow-popup z-20 absolute top-10 left-0 md:left-[unset] right-0 md:right-6">
         <slot></slot>
         <button class="absolute top-4 right-4" @click="$emit('close')">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

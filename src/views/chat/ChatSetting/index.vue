@@ -1,6 +1,6 @@
 <template>
     <div class="overflow-auto scrollbar w-full p-4 md:p-8" @touchmove.stop>
-        <RouterLink to="/chat/settings" class="flex items-center xl:hidden">
+        <RouterLink to="/chat/settings" class="flex items-center lg:hidden">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g opacity="0.4">
                     <path

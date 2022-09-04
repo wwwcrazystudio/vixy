@@ -9,7 +9,7 @@
         <div class="p-4 border-b border-white/5">
             <AdvBanner class="mb-4 hidden md:flex !bg-white" :banner="banner" />
             <div class="font-medium text-white flex">
-                Чат с клиентом
+                Чат с&nbsp;клиентом
                 <span
                     v-if="unreadedMessages?.length"
                     class="ml-auto text-sm text-dark font-bold w-7 h-7 grid place-content-center bg-white rounded-full"

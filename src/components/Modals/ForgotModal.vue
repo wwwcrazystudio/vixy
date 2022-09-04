@@ -1,21 +1,12 @@
 <template>
-    <Modal class="max-w-[calc(100%-1rem)]">
-        <div
-            class="mx-auto text-2xl sm:text-32 mb-2 sm:mb-6 font-medium text-center"
-        >
-            {{ heading }}
+    <Modal>
+        <div class="mx-auto text-2xl sm:text-32 mb-2 sm:mb-6 font-medium text-center" v-html="heading">
         </div>
-        <div class="mx-auto mb-4 sm:mb-6 text-center font-light text-lg">
-            {{ subheading }}
+        <div class="mx-auto mb-4 sm:mb-6 text-center font-light text-lg" v-html="subheading">
         </div>
 
         <template v-if="!submitted">
-            <Input
-                class="mb-4"
-                type="email"
-                label="Введите email"
-                v-model:value="email"
-            />
+            <Input class="mb-4" type="email" label="Введите email" v-model:value="email" />
             <div class="flex">
                 <Button light class="basis-1/4 m-auto block mr-4">Назад</Button>
                 <Button class="grow m-auto block" @click="submitted = true">
@@ -25,7 +16,7 @@
         </template>
 
         <template v-else>
-            <Button class="w-4/6 m-auto block">Вернуться к входу</Button>
+            <Button class="w-4/6 m-auto block">Вернуться к&nbsp;входу</Button>
         </template>
     </Modal>
 </template>
@@ -47,8 +38,8 @@ const heading = computed(() => {
 
 const subheading = computed(() => {
     if (submitted.value)
-        return 'На указанный имейл была отправлена ссылка. Измените пароль и войдите с новыми данными.'
+        return 'На&nbsp;указанный имейл была отправлена ссылка. Измените пароль и&nbsp;войдите с&nbsp;новыми данными.'
 
-    return 'Укажите email, на который зарегистрирован аккаунт и мы вышлем вам ссылку для изменения пароля.'
+    return 'Укажите email, на&nbsp;который зарегистрирован аккаунт и&nbsp;мы&nbsp;вышлем вам ссылку для изменения&nbsp;пароля.'
 })
 </script>

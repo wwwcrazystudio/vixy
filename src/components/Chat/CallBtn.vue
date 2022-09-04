@@ -19,11 +19,11 @@ const props = defineProps<BtnProps>()
 const buttonColor = computed(() => {
     switch (props.color) {
         case 'red':
-            return 'bg-[#FE2E22] hover:bg-[#FE584E] active:bg-[#CB251B]'
+            return 'bg-[#FE2E22] hover:bg-[#FE584E] active:bg-[#CB251B] focus:bg-[#CB251B]'
         case 'green':
-            return 'bg-[#35C659] hover:bg-[#35C659] active:bg-[#2A9E47]'
+            return 'bg-[#35C659] hover:bg-[#5DD17A] active:bg-[#2A9E47] focus:bg-[#2A9E47]'
         default:
-            return 'bg-accent'
+            return 'bg-accent hover:bg-[#3053F4] active:bg-[#1433C2] focus:bg-[#1433C2]'
     }
 })
 </script>
