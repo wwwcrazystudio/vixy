@@ -37,7 +37,7 @@ const id = nanoid()
 
 const pseudoElements = computed(() => {
     const before =
-        'hover:before:border-[#adadad] active:before:border-[#828282] before:w-6 before:h-6 before:border before:border-gray before:rounded-full before:absolute before:left-0 before:top-0 before:bg-white'
+        'hover:before:border-[#adadad] active:before:border-[#828282] focus:before:border-[#828282] before:w-6 before:h-6 before:border before:border-gray before:rounded-full before:absolute before:left-0 before:top-0 before:bg-white'
     const after =
         'after:w-3 after:h-3 after:absolute after:top-1.5 after:rounded-full after:left-1.5 after:bg-accent after:opacity-0 after:transition after:duration-500 peer-checked:after:opacity-100'
 
