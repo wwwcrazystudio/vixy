@@ -10,29 +10,35 @@
                 </linearGradient>
             </defs>
         </svg>
-        <div class="w-full" ref="chartEl">
-
-        </div>
+        <div class="w-full" ref="chartEl"> </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { Chart } from "frappe-charts"
-import { onMounted, ref, watch } from 'vue';
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
 export interface ChartProps {
-    data: object
+    chartData: object
 }
 
 const props = defineProps<ChartProps>()
 
 const chartEl = ref<HTMLElement>()
-const chart = ref<any>()
+const chartInstance = ref<any>()
 
-onMounted(() => {
-    if (chartEl.value) {
-        chart.value = new Chart(chartEl.value, {
-            data: props.data,
+onMounted(async () => {
+    await nextTick()
+    if (chartEl.value && !chartInstance.value) {
+        chartInstance.value = new Chart(chartEl.value, {
+            data: {
+                labels: ['1/1/2022', '2/1/2022', '3/1/2022', '4/1/2022', '5/1/2022', '6/1/2022', '7/1/2022'],
+                datasets: [
+                    {
+                        values: [140, 170, 128, 140, 100, 90, 110]
+                    }
+                ]
+            },
             type: 'line',
             height: 260,
             colors: ['#1940F3'],
@@ -55,9 +61,13 @@ onMounted(() => {
     }
 })
 
-watch(() => props.data, () => {
-    if (chart.value)
-        chart.value.update(props.data)
+watch(() => props.chartData, () => {
+    if (chartInstance.value)
+        chartInstance.value.update(props.chartData)
+})
+
+onUnmounted(() => {
+    if (chartInstance.value) chartInstance.value.destroy()
 })
 
 
@@ -65,42 +75,43 @@ watch(() => props.data, () => {
 
 <style>
 .graph-svg-tip.comparison {
-    display: flex;
-    flex-direction: column-reverse;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px);
-    border-radius: 4px;
-    font-size: 16px;
-    padding: 4px 8px;
-    align-items: center;
-    max-width: 70px;
-    transform: translateY(-10px);
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(2px) !important;
+    border-radius: 4px !important;
+    font-size: 16px !important;
+    padding: 4px 8px !important;
+    align-items: center !important;
+    max-width: 70px !important;
+    transform: translateY(-14px) !important;
 }
 
 .graph-svg-tip.comparison li {
     padding: 0 !important;
-    margin-bottom: 4px;
+    margin-bottom: 4px !important;
 }
 
 .graph-svg-tip.comparison .title {
-    font-size: 0.75rem;
+    font-size: 0.75rem !important;
     padding: 0 !important;
+    margin-bottom: 6px !important;
 }
 
 .graph-svg-tip.comparison li {
-    padding: 0;
+    padding: 0 !important;
     border-top: none !important;
-    text-align: center;
+    text-align: center !important;
 }
 
 .graph-svg-tip .svg-pointer {
     border-top-color: rgba(0, 0, 0, 0.6) !important;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px) !important;
     margin: 0 0 -14px -5px !important;
 }
 
 .chart-container .dataset-units .line-graph-path {
-    stroke-dasharray: 6;
+    stroke-dasharray: 6 !important;
     fill: none !important;
 }
 
@@ -111,41 +122,41 @@ watch(() => props.data, () => {
 .chart-container .dataset-units circle {
     fill: #fff !important;
     stroke: #1940F3 !important;
-    r: 6;
-    stroke-width: 6px;
-    transition: 350ms;
+    r: 6 !important;
+    stroke-width: 6px !important;
+    transition: 350ms !important;
 }
 
 .chart-container .dataset-units circle:hover {
-    r: 8;
-    transition: 350ms;
+    r: 8 !important;
+    transition: 350ms !important;
 }
 
 .chart-container .axis text {
-    font-size: 18px;
-    opacity: 0.6;
+    font-size: 18px !important;
+    opacity: 0.6 !important;
 }
 
 @media (max-width: 1024px) {
     .chart-container .dataset-units circle {
-        r: 4;
-        stroke-width: 3px;
-        transition: 350ms;
+        r: 4 !important;
+        stroke-width: 3px !important;
+        transition: 350ms !important;
     }
 
     .chart-container .axis text {
-        font-size: 14px;
+        font-size: 14px !important;
     }
 }
 
 .chart-container .x {
-    transform: translateY(10px);
+    transform: translateY(10px) !important;
 
 }
 
 
 .chart-container .y {
-    transform: translatex(-10px);
+    transform: translatex(-10px) !important;
 
 }
 </style>

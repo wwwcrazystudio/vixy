@@ -205,7 +205,7 @@ export const placeholderContacts:ContactItemType[] = [
             img: operatorImg,
         },
         color: '',
-        url: '12345',
+        url: '123456',
         excerpt: '',
         history: [
             {

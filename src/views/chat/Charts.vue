@@ -58,11 +58,11 @@
 
         </ul>
 
-        <div class="shadow-basic bg-white rounded-2xl p-4 md:p-6 w-full">
+        <div class="shadow-basic bg-white rounded-2xl p-4 md:p-6 w-full" v-if="data">
             <div>Статистика за&nbsp;выбранный период</div>
             <div class="text-sm opacity-60 mb-4 md:mb-6">На этой неделе</div>
 
-            <Chart :data="data" class="w-full" />
+            <Chart :chartData="data" class="w-full" />
         </div>
     </div>
 </template>
