@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-10 pb-10 overflow-auto h-screen w-screen flex">
+    <div class="pt-10 pb-10 overflow-auto h-full w-screen flex">
         <div
             class="relative bg-white shadow-modal rounded-2xl p-4 sm:p-8 w-full h-fit m-auto  overflow-auto max-w-[calc(100%-1rem)] lg:max-w-xl"
             :class="modalClass"

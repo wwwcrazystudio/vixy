@@ -1,5 +1,5 @@
 <template>
-    <Modal class="pb-0"
+    <Modal class="!pb-0"
         modalClass="max-w-none w-full rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 mb-0 md:mb-auto bottom-0 z-50 h-fit"
         @close="$emit('close')">
         <div class="mx-auto lg:text-2xl mb-2 sm:mb-6 font-medium text-center">

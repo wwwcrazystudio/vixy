@@ -25,7 +25,7 @@
                 class="absolute z-5 left-0 top-0 right-0 bottom-0 m-auto w-full h-full bg-dark" />
 
             <CallVideo class="w-full h-screen object-cover object-center transition-all duration-1000"
-                :class="expandedSidebar && 'h-2/6'" :poster="video" :status="status" :show="showPeerVideo"
+                :class="expandedSidebar && 'h-[40%]'" :poster="video" :status="status" :show="showPeerVideo"
                 nickname="Unknown Purple Oyster" />
 
             <AdvBannerCarousel :banners="placeholderBanners" class="absolute left-2 bottom-32 md:bottom-24" />
