@@ -107,6 +107,8 @@ const { isMobile } = useMobileDetection()
 const formMessage = ref<string>('')
 const wrap = ref<HTMLElement>()
 const expanded = ref<boolean>(false)
+const viewportHeight = ref<number>(window.innerHeight);
+const wrapHeight = ref<number>(0)
 
 const submit = () => {
     return
@@ -146,15 +148,14 @@ const unreadedMessages = computed(() => {
 })
 
 const sidebarStyle = computed(() => {
-    const wrapHeight = wrap.value?.offsetHeight
     if (expanded.value) {
         return {
-            top: `calc(100vh - ${wrapHeight}px)`
+            top: `calc(${viewportHeight.value}px - ${wrapHeight.value}px)`
         }
     }
 
     return {
-        top: 'calc(100vh - 60px)'
+        top: `calc(${viewportHeight.value}px - 60px)`
     }
 })
 
@@ -166,12 +167,22 @@ const handleDocumentClick = () => {
     }
 }
 
+const handleDocumentResize = () => {
+    console.log('test')
+    wrapHeight.value = wrap.value!.offsetHeight
+    viewportHeight.value = window.innerHeight
+}
+
+
 onMounted(() => {
+    wrapHeight.value = wrap.value!.offsetHeight
     document.addEventListener('click', handleDocumentClick)
+    window.addEventListener('resize', handleDocumentResize)
 })
 
 onUnmounted(() => {
-    document.addEventListener('click', handleDocumentClick)
+    document.removeEventListener('click', handleDocumentClick)
+    window.removeEventListener('resize', handleDocumentResize)
 })
 </script>
 
