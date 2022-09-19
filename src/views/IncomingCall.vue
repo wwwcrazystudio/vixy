@@ -1,6 +1,6 @@
 <template>
     <div class="flex bg-dark h-screen overflow-hidden relative">
-        <div class="basis-9/12 grow shrink relative overflow-hidden grid">
+        <div class="basis-9/12 grow shrink relative h-full overflow-hidden grid">
             <transition name="slide">
                 <CallStatus
                     class="absolute left-0 right-0 top-4 m-auto z-20"
@@ -44,8 +44,8 @@
             />
 
             <CallVideo
-                class="w-full h-screen object-cover object-center transition-all duration-1000"
-                :class="expandedSidebar && 'h-2/6'"
+                class="w-full h-full object-cover object-center transition-all duration-1000"
+                :class="expandedSidebar && '!h-[40%]'"
                 :poster="video"
                 :status="status"
                 :show="showPeerVideo"

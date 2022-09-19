@@ -168,7 +168,6 @@ const handleDocumentClick = () => {
 }
 
 const handleDocumentResize = () => {
-    console.log('test')
     wrapHeight.value = wrap.value!.offsetHeight
     viewportHeight.value = window.innerHeight
 }
