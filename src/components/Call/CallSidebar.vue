@@ -184,7 +184,3 @@ onUnmounted(() => {
     window.removeEventListener('resize', handleDocumentResize)
 })
 </script>
-
-<style scoped>
-
-</style>

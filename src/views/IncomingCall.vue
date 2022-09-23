@@ -1,6 +1,6 @@
 <template>
     <div class="flex bg-dark h-screen overflow-hidden relative">
-        <div class="basis-9/12 grow shrink relative h-full overflow-hidden grid">
+        <div class="basis-9/12 grow shrink relative h-screen overflow-hidden grid">
             <transition name="slide">
                 <CallStatus
                     class="absolute left-0 right-0 top-4 m-auto z-20"
