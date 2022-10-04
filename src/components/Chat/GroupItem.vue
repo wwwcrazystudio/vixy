@@ -1,7 +1,7 @@
 <template>
     <li>
         <button class="w-6 h-6 sm:w-10 sm:h-10 rounded-full border border-gray block" :class="
-            selected && `outline outline-offset-2 outline-2 outline-accent`
+            selected && `btn-outline`
         " @click="$emit('click', group)">
             <picture class="block">
                 <img class="w-full h-full object-cover" :src="group.icon" :alt="group.title" />
@@ -25,3 +25,9 @@ export interface Emits {
 defineEmits<Emits>()
 defineProps<Group>()
 </script>
+
+<style scoped>
+.btn-outline {
+    box-shadow: 0px 0px 0px 2px #1940F3;
+}
+</style>

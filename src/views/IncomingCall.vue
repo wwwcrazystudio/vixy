@@ -52,9 +52,7 @@
                 nickname="Unknown Purple Oyster"
             />
 
-            <CallControls
-                class="absolute bottom-20 md:bottom-0 left-0 right-0 z-10"
-            />
+            <CallControls class="absolute bottom-16 md:bottom-0 left-0 right-0" />
         </div>
 
         <CallSidebar

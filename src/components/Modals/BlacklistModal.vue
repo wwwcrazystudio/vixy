@@ -1,6 +1,6 @@
 <template>
     <Modal class="!pb-0"
-        modalClass="max-w-none w-full rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 mb-0 md:mb-auto bottom-0 z-50 h-fit"
+        modalClass="max-w-none md:max-w-[calc(100%-1rem)] w-full rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 mb-0 md:mb-auto bottom-0 z-50 h-fit"
         @close="$emit('close')">
         <div class="mx-auto lg:text-2xl mb-2 sm:mb-6 font-medium text-center">
             Заблокировать пользователя?

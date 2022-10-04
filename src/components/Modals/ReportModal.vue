@@ -1,5 +1,5 @@
 <template>
-    <Modal class="pb-0" modalClass="max-w-none w-full rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 mb-0 md:mb-auto bottom-0 z-50 h-fit" @close="$emit('close')">
+    <Modal class="pb-0" modalClass="max-w-none md:max-w-[calc(100%-1rem)] w-full rounded-b-none md:rounded-2xl md:fixed md:top-0 left-0 right-0 mb-0 md:mb-auto bottom-0 z-50 h-fit" @close="$emit('close')">
         <div class="text-2xl sm:text-32 mb-2 sm:mb-6">Сообщить о проблеме</div>
 
         <div class="font-medium text-black/60 mb-6">
